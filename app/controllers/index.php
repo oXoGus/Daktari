@@ -1,6 +1,6 @@
 <?php
 session_start();
-//On vérifie que l'utilisateur ait bien rempli son login et son mot de passe
+    //On vérifie que l'utilisateur ait bien rempli son login et son mot de passe
     if (!empty($_GET['login']) && !empty($_GET['mdp'])) {
 
         //On recupère les infos de connexion de l'user
@@ -8,7 +8,7 @@ session_start();
         $password = $_GET['mdp'];
 
         //On tente la connexion, on appel donc le model
-        include ($originDir.'/app/models/index.php');
+        include($originDir.'/app/models/index.php');
 
         //S'il n'y a pas de login et mdp correspondant
         if ($res->rowCount() == 0) {
@@ -21,7 +21,7 @@ session_start();
         //sinon on récupère les données de la première ligne du résultat 
         $user = $res-> fetch(PDO::FETCH_OBJ);
         $_SESSION['login']= $login;
-        $_SESSION['mdp']=$val->mdp;
+        $_SESSION['mdp']=$user->password_hash;
 
         //on redirige l'user vers la page d'accueil
         header('location: /public/home.php');
@@ -34,9 +34,8 @@ session_start();
         if (isset($_SESSION['login']) && isset($_SESSION['mdp'])) {
             unset($_SESSION['login']);
             unset($_SESSION['mdp']);
-
-            //On affiche de nouveau le formulaire de connexion
-            include($originDir.'/app/views/index.php');
         }
+        //On affiche de nouveau le formulaire de connexion
+        include($originDir.'/app/views/index.php');
     }
 ?>
