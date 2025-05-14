@@ -57,7 +57,7 @@ CREATE TABLE vaccins(
 
 CREATE TABLE user_db (
    id serial primary key,
-   username TEXT NOT NULL, 
+   username TEXT NOT NULL UNIQUE, 
    password_hash TEXT NOT NULL
 );
 
