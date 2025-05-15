@@ -6,3 +6,106 @@ body {
     background-color: #FCECD4;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+    background-color: #0B2E49;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+
+}
+
+.navBar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #FCECD4;
+}
+
+
+.title {
+    position: absolute;
+    top: 150px;
+    left: calc((100vw - 838px)/2);
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 115px;
+    color: white;
+    
+}
+
+.menuDeroulantContainer {
+    position: relative;
+    display: inline-block;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-left: 20px;
+    width: 190px;
+}
+
+.menuDeroulantBtn {
+    border: none;
+    background-color: transparent;
+    color: #993E1E;
+}
+
+.menuDeroulant {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-bottom: 10px;
+}
+
+.flecheBas {
+    fill:#993E1E;
+}
+
+.menuDeroulantContainer:hover .menuDeroulantBtn {
+    background-color: #993E1E;
+    color: #FCECD4;
+}
+
+.menuDeroulantContainer:hover .flecheBas {
+    fill: #FCECD4;
+}
+
+.menuDeroulantContainer:hover {
+    background-color: #993E1E;
+    color: #FCECD4;
+}
+
+.menuDeroulantContainer:hover .menuDeroulant {
+    display: inline-block;
+    background-color: #993E1E;
+    color: #FCECD4;
+}
+
+.menuDeroulant .menuItem {
+    color: #FCECD4;
+    background-color: #993E1E;
+    font-size: 24px;
+    white-space: nowrap;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+}
+
+.menuItem:hover {
+    color: #993E1E;
+    background-color: #FCECD4;
+    border-radius: 30px;
+}
