@@ -14,7 +14,7 @@ session_start();
         if ($res->rowCount() == 0) {
             //On retourne une erreur sur l'écran et on renvoit le formulaire
             $err = "login ou mot de passe incorrect";
-            include($originDir.'/app/view/connexion.php');
+            include($originDir.'/app/views/connexion.php');
             exit;
         }
 

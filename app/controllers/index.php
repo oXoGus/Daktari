@@ -3,6 +3,6 @@
 
     // si l'utilisateur est connecté 
     // on inclue directment la vue puiqu'il n'y à aucune info à récup
-    include($originDir."/app/views/index.html");
+    include($originDir."/app/views/index.php");
     
 ?>
