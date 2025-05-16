@@ -5,8 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ajouter un animal</title>
         <link rel="stylesheet" href="style/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="container">
         <h1>Ajouter un animal</h1>
         <form type="GET" action="animal_ajouter.php">
             <h2>Responsable</h2>
@@ -14,8 +18,8 @@
                 <select name="resp">
                     <option value="">--Choisissez un Responsable--</option>
                 </select>
-                <div class="btnResp">
-                    Nouveau Responsable
+                <div>
+                    <a>Nouveau Responsable</a>
                 </div>
             </div>
             <h2>Descriptif</h2>
@@ -26,6 +30,7 @@
                 </select><br>
                 Race : <select name="race">
                     <option value="">--Selectionnez une race--</option>
+                    <option value="a">a</option>
                 </select><br>
                 Genre : <br>
                 <input type="radio" value="F" name="genre">
@@ -42,20 +47,25 @@
                 Non
                 <br>
                 Poids : <input type="text" name="poids">
-                <br>
             </div>
             <h2>Vaccins</h2>
-            <div class="btnAddVacc">
-                Ajouter un Vaccin pour cet animal
+            <div class="vaccin">
+            <div>
+                <a>Ajouter un Vaccin pour cet animal</a>
             </div>
             <select name="Vaccin">
                 <option value="">--Nom du Vaccin--</option>
             </select>
-            <div class="newVaccin">
-                Nouveau Vaccin
-            </div><br>
-            <input type="" value="Reinitialiser">
-            <input type="submit" value="Sauvegarder">
+            <div>
+            <a>Nouveau Vaccin</a>
+            </div>
+            </div>
+            <br>
+            <div class="btnEnd">
+            <input type="reset" value="Reinitialiser">
+            <a><input type="submit" value="Sauvegarder" id="save"></a>
+            </div>
         </form>
+        </div>
     </body>
 </html>

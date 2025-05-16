@@ -183,3 +183,118 @@ form span {
 
 
 
+
+
+.new {
+    background-color: #31656C;
+    color: #FCECD4;
+    border-radius: 20px;
+}
+
+.container {
+    background-color: #FCECD4;
+    color: #31656C;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+#save {
+    color: white;
+    text-decoration: none;
+    background-color: #0B2E49;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    border: none;
+}
+
+.Descriptif {
+    color:#0B2E49;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+h1 {
+    color:#993E1E;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 60px;
+}
+
+input[type="text"] {
+    border: none;
+    border-radius: 10px;
+}
+
+select {
+    border: none;
+    background-color: transparent;
+    color:#993E1E;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+input[type="reset"] {
+    border:#993E1E 2px solid;
+    background-color: transparent;
+    color:#993E1E;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+h2 {
+    color:#31656C;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
+
+.vaccin {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 2;
+    align-items: center;
+    margin:0px;
+    padding:0px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btnEnd {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.resp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+option {
+    
+    background-color: transparent;
+    color:#993E1E;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
