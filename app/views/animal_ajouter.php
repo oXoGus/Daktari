@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -6,7 +7,6 @@
         <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
-        <?php echo"erreur";?>
         <h1>Ajouter un animal</h1>
         <form type="GET" action="animal_ajouter.php">
             <h2>Responsable</h2>
