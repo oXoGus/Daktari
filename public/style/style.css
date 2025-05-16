@@ -1,3 +1,7 @@
+:root {
+    accent-color: #993E1E;
+}
+
 body {
     background-color: #31656C;
 }
@@ -26,6 +30,7 @@ a {
     align-items: center;
     justify-content: space-around;
     background-color: #FCECD4;
+    margin-bottom: 20px;
 }
 
 
@@ -126,6 +131,7 @@ a {
     border-radius: 30px;
     background-color: #FCECD4;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 body {
@@ -133,6 +139,7 @@ body {
 }
 
 form {
+    position: relative;
     display: flex;
     width: calc(100% - 200px);
     flex-direction: column;
@@ -140,9 +147,16 @@ form {
 }
 
 form span {
-    display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    color: #0B2E49;
+}
+
+span svg {
+    transform: translateY(-5px);
 }
 
 .formTitle {
@@ -159,8 +173,9 @@ form span {
     width: 100%;
     align-items: baseline;
     gap: 15px;
-    margin-bottom: 10px;
+    position: relative;
 }
+
 
 .sectionTitle {
     font-family: "Pacifico", cursive;
@@ -177,7 +192,32 @@ form span {
     background-color: #31656C;
     border-radius: 30px;
     height: 12px;
-    
+}
+
+
+.newBtnRight {
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+    background-color: #31656C;
+    color: #FCECD4;
+}
+
+.newBtnLeft {
+    position: absolute;
+    left: 0;
+    bottom: -140px;
+    border: none;
+    max-width: 350px;
+    background-color: #31656C;
+    color: #FCECD4;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
 }
 
 
@@ -213,7 +253,7 @@ form span {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 20px;
+    font-size: 35px;
     border: none;
 }
 
@@ -233,9 +273,25 @@ h1 {
     font-size: 60px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"], textarea {
     border: none;
     border-radius: 10px;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    color: #434343;
+    font-size: 30px;
+    padding-left: 5px;
+}
+
+input[type="number"] {
+    width: 100px;
+}
+
+
+input[type="radio"]{
+    width: 20px;
+    height: 20px;
 }
 
 select {
@@ -245,18 +301,43 @@ select {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 20px;
+    font-size: 35px;
+    appearance: none;
+}
+
+
+.btnSubResetContainer {
+    position: absolute;
+    bottom: 10px;
+    right: -90px;
+
+    display: flex;
+    gap: 10px;
 }
 
 input[type="reset"] {
-    border:#993E1E 2px solid;
-    background-color: transparent;
+    border:#993E1E 3px solid;
+    background-color: #FCECD4;
     color:#993E1E;
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 20px;
-    border-radius: 20px;
+    font-size: 32px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 58.25px;
+}
+
+input[type="date"], input[type="time"] {
+    background-color: transparent;
+    border: none;
+    color: #993E1E;
+    font-size: inherit;
+    font-family: inherit;
+    margin-left: 5px;
 }
 
 h2 {
@@ -291,10 +372,29 @@ h2 {
 }
 
 option {
-    
     background-color: transparent;
     color:#993E1E;
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
+}
+
+
+
+textarea {
+    width: 33%;
+    height: 200px;
+}
+
+input[type="submit"] {
+    border: none;
+    color: white;
+    background-color: #0B2E49;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
 }

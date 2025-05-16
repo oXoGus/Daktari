@@ -21,7 +21,7 @@ CREATE TABLE consultation(
    type_localisation loc NOT NULL,
    resume VARCHAR(255),
    duree TIME,
-   prev_consult integer
+   prev_consult integer references consultation(id)
 );
 
 CREATE TABLE manipulation(
