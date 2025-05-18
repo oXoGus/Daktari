@@ -257,7 +257,7 @@ span svg {
     border: none;
 }
 
-.Descriptif {
+.Descriptif, .user, .info {
     color:#0B2E49;
     font-family: "Pacifico", cursive;
     font-weight: 400;
@@ -348,17 +348,6 @@ h2 {
     font-size: 50px;
 }
 
-.vaccin {
-    display: flex;
-    flex-wrap: wrap;
-    flex-grow: 2;
-    align-items: center;
-    margin:0px;
-    padding:0px;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 .btnEnd {
     display: flex;
     flex-direction: row;
@@ -397,4 +386,76 @@ input[type="submit"] {
     font-weight: 400;
     font-style: normal;
     font-size: 32px;
+}
+
+.btnReturn {
+    position: absolute;
+    left: 10;
+    color:#993E1E;
+    background-color: transparent;
+}
+
+.btnDelete {
+    position: absolute;
+    color:red;
+    background-color: transparent;
+    left: 0px;
+    bottom: 10px;
+    border: solid 1px red ;
+    border-radius:30px;
+}
+
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    margin:10px;
+  }
+
+th, td {
+    border-bottom: 7px solid #31656C;
+    border-right: 7px solid #31656C;
+    padding: 10px; 
+}
+  
+table tr td:first-child, 
+table tr th:first-child {
+  border-left: 7px solid #31656C;
+}
+
+table thead>tr:first-child th:first-child {
+    border-top-left-radius: 20px;
+}
+
+
+table tr:first-child th:last-child {
+    border-top-right-radius: 20px;
+}
+
+
+table tbody>tr:last-child th:first-child{
+    border-bottom-left-radius: 20px;
+}
+  
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+thead th {
+    background-color: #31656C;
+    color:#FCECD4;
+}
+
+table a {
+    background-color: #31656C;
+    color:#FCECD4;
+}
+
+table thead th:first-child, table tr th {
+    border-collapse: collapse;
 }
