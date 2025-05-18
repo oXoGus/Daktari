@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <title>Daktari</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <title>Nouvelle manipulation</title>
 </head>
 <body>
-    <span class="title">Bonjour, <span style="color: #EC7218;"><?php echo $login ?></span></span>
-    <div style="display: flex; align-items: center; height: 100vh;">
-        <div class="navBar" style="height: 150px;">
+    <div class="mainContainer">
+        <div class="navBar" style="height:70px; margin-top: 10px">
             <a href="nouvelleConsult.php">nouvelle consultation</a>
             <a href="nouvelAnimal.php">nouvel animal</a>
             <a href="rechercherConsult.php">rechercher une consultation</a>
@@ -40,6 +40,34 @@
                     <a class="menuItem" href="rechercherUtilisateur.php">un utilisateur</a>
                 </div>
             </div>
+            <a href="connexion.php">se déconnecter</a>
+        </div>
+
+        <div class="formContainer">
+            <h1 class="formTitle">Nouvelle manipulation</h1>
+            <form type="GET" action="nouveauParticulier.php">
+                <div class="sectionTitleContainer">
+                    <div></div>    
+                    <h2 class="sectionTitle">Info générales</h2>
+                    <div></div>
+                </div> 
+                <span>
+                    Code de 8 caractères max : <input type="text" name="code" >
+                </span>
+                <span>
+                    Tarif en centime : <input type="text" name="tarif" >
+                </span>
+                <span>
+                    Durée de la manipulation en minutes :<input type="number" name="duree" >
+                </span>
+
+                <div class="btnSubResetContainer">
+                    <input type="reset" value="Reinitialiser">
+                    <input type="submit" value="Sauvegarder">
+                </div>
+
+                <div style="margin-bottom: 50px;"></div>
+            </form>
         </div>
     </div>
 </body>

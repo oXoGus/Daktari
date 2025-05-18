@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <title>Ajouter une consultation</title>
+    <title>rechercher une consultation</title>
 </head>
 <body>
     <div class="mainContainer">
@@ -44,25 +44,19 @@
         </div>
 
         <div class="formContainer">
-            <h1 class="formTitle">Ajouter une consultation</h1>
+            <h1 class="formTitle">Rechercher une consultation</h1>
             <form type="GET" action="nouvelleConsult.php">
                 <div class="sectionTitleContainer">
                     <div></div>    
-                    <h2 class="sectionTitle">Animal</h2>
+                    <h2 class="sectionTitle">Rechercher par</h2>
                     <div></div>
-                    <a class="newBtnRight" href="nouvelAnnimal.php">ajouter un animal</a>
                 </div> 
                 <span>
                     <select name="animal">
-                        <option value="">Selectionnez un animal...</option>
+                        <option value="">Sélectionnez un animal...</option>
                     </select>
                     <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
                 </span>
-                <div class="sectionTitleContainer">
-                    <div></div>    
-                    <h2 class="sectionTitle">Desciptif</h2>
-                    <div></div>
-                </div>
                 <span>
                     le <input type="date" name="date_consult" value="2025-05-16"> à <input type="time" name="time_consult" value="14:03">
                 </span>
@@ -77,11 +71,6 @@
                 <textarea name="anamnese"></textarea>
                 <span>Diagnostique :</span>
                 <textarea name="diagnostique"></textarea>
-                <span>Résumé :</span>
-                <textarea name="resume"></textarea>
-                <span>
-                    durée de la consultation<input type="time" name="duree" value="00:30">
-                </span>
                 <span>
                     Mode de localisation :
                     <select name="type_localisation">
@@ -103,29 +92,14 @@
                     </select>
                     <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
                 </span>
-                <div class="sectionTitleContainer">
-                    <div></div>    
-                    <h2 class="sectionTitle">Manipulations</h2>
-                    <div></div>
-                    <a class="newBtnRight" href="nouvelleManip.php">créer une manipulation</a>
-                    <button type="submit"class="newBtnLeft">ajouter une manipulation pour cette consultation </button>
-                </div> 
                 <span>
-                    <select name="manip[]">
+                    <select name="manip">
                         <option value="">Selectionnez une manipulation...</option>
                     </select>
                     <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
                 </span>
-
-                <div class="sectionTitleContainer">
-                    <div></div>
-                    <h2 class="sectionTitle">Traitement</h2>
-                    <div></div>
-                    <a class="newBtnRight" href="nouveauTraitement.php">nouveau traitement</a>
-                    <button type="submit"class="newBtnLeft">ajouter un traitement pour cette consultation </button>
-                </div> 
                 <span>
-                    <select name="traitement[]">
+                    <select name="traitement">
                         <option value="">Selectionnez un traitement...</option>
                     </select>
                     <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
@@ -134,12 +108,39 @@
                
                 <div class="btnSubResetContainer">
                     <input type="reset" value="Reinitialiser">
-                    <input type="submit" value="Sauvegarder">
+                    <input type="submit" value="Rechercher">
                 </div>
 
                 <div style="margin-bottom: 100px"></div>
                 
             </form>
+        </div>
+
+        <div class="responseContainer">
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>animal</th>
+                        <th>date</th>
+                        <th>Où</th>
+                        <th>type</th>
+                        <th>consultation antérieur</th>
+                        <th>voir plus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>animal</td>
+                        <td>date</td>
+                        <td>Où</td>
+                        <td>type</td>
+                        <td>consultation antérieur</td>
+                        <td>voir plus</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

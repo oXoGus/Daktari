@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <title>Daktari</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <title>Nouveau particulier</title>
 </head>
 <body>
-    <span class="title">Bonjour, <span style="color: #EC7218;"><?php echo $login ?></span></span>
-    <div style="display: flex; align-items: center; height: 100vh;">
-        <div class="navBar" style="height: 150px;">
+    <div class="mainContainer">
+        <div class="navBar" style="height:70px; margin-top: 10px">
             <a href="nouvelleConsult.php">nouvelle consultation</a>
             <a href="nouvelAnimal.php">nouvel animal</a>
             <a href="rechercherConsult.php">rechercher une consultation</a>
@@ -40,6 +40,43 @@
                     <a class="menuItem" href="rechercherUtilisateur.php">un utilisateur</a>
                 </div>
             </div>
+            <a href="connexion.php">se déconnecter</a>
+        </div>
+
+        <div class="formContainer">
+            <h1 class="formTitle">Nouveau particulier</h1>
+            <form type="GET" action="nouveauParticulier.php">
+                <div class="sectionTitleContainer">
+                    <div></div>    
+                    <h2 class="sectionTitle">Info générales</h2>
+                    <div></div>
+                </div> 
+                <span>
+                    Nom : <input type="text" name="nom" >
+                </span>
+                <span>
+                    Prénom : <input type="text" name="prenom" >
+                </span>
+                <span>
+                    Date de naissance : <input type="date" name="dateNaiss" >
+                </span>
+                <span>
+                    Adresse : <input type="text" name="adresse" >
+                </span>
+                <span>
+                    Téléphone : <input type="text" name="telephone" >
+                </span>
+                <span>
+                    Mail : <input type="text" name="mail" >
+                </span>
+
+                <div class="btnSubResetContainer">
+                    <input type="reset" value="Reinitialiser">
+                    <input type="submit" value="Sauvegarder">
+                </div>
+
+                <div style="margin-bottom: 50px;"></div>
+            </form>
         </div>
     </div>
 </body>

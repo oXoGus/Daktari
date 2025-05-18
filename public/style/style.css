@@ -44,7 +44,6 @@ a {
     font-style: normal;
     font-size: 115px;
     color: white;
-    
 }
 
 .menuDeroulantContainer {
@@ -58,6 +57,7 @@ a {
     border-top-right-radius: 10px;
     padding-left: 20px;
     width: 190px;
+    z-index: 100;
 }
 
 .menuDeroulantBtn {
@@ -95,7 +95,7 @@ a {
 }
 
 .menuDeroulantContainer:hover .menuDeroulant {
-    display: inline-block;
+    display: block;
     background-color: #993E1E;
     color: #FCECD4;
 }
@@ -144,6 +144,7 @@ form {
     width: calc(100% - 200px);
     flex-direction: column;
     align-items: center;
+    z-index: 0;
 }
 
 form span {
@@ -175,6 +176,8 @@ span svg {
     gap: 15px;
     position: relative;
 }
+
+
 
 
 .sectionTitle {
@@ -379,8 +382,6 @@ option {
     font-style: normal;
 }
 
-
-
 textarea {
     width: 33%;
     height: 200px;
@@ -397,4 +398,73 @@ input[type="submit"] {
     font-weight: 400;
     font-style: normal;
     font-size: 32px;
+}
+
+.responseContainer {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 40px);
+    align-items: center;
+    border-radius: 30px;
+    background-color: #FCECD4;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.responseContainer table {
+    border: solid #31656C 8px;
+    border-radius: 30px;
+    border-collapse: separate;
+    border-spacing: 0px;
+    width: calc(100% - 200px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: #31656C;
+    color: #FCECD4;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+}
+
+tr:first-child {
+    border-radius: 30px;
+}
+
+
+th, td {
+    border: solid #31656C 4px;
+
+}
+
+
+
+th {
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    color: #FCECD4;
+}
+
+td {
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    color: black;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+th:last-child {
+    border-top-right-radius: 20px;
 }
