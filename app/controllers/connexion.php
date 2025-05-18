@@ -1,41 +1,26 @@
-<?php
-session_start();
-    //On vérifie que l'utilisateur ait bien rempli son login et son mot de passe
-    if (!empty($_GET['login']) && !empty($_GET['mdp'])) {
-
-        //On recupère les infos de connexion de l'user
-        $login = $_GET['login'];
-        $password = $_GET['mdp'];
-
-        //On tente la connexion, on appel donc le model
-        include($originDir.'/app/models/connexion.php');
-
-        //S'il n'y a pas de login et mdp correspondant
-        if ($res->rowCount() == 0) {
-            //On retourne une erreur sur l'écran et on renvoit le formulaire
-            $err = "login ou mot de passe incorrect";
-            include($originDir.'/app/views/connexion.php');
-            exit;
-        }
-
-        //sinon on récupère les données de la première ligne du résultat 
-        $user = $res-> fetch(PDO::FETCH_OBJ);
-        $_SESSION['login']= $login;
-        $_SESSION['mdp']=$user->password_hash;
-
-        //on redirige l'user vers la page d'accueil
-        header('location: /Daktari/');
-        exit;
-    }
-    //Si l'utilisateur n'a pas rempli le formulaire
-    else {
-        //On va donc déconnecter l'user
-        //Si il est connecté alors 
-        if (isset($_SESSION['login']) && isset($_SESSION['mdp'])) {
-            unset($_SESSION['login']);
-            unset($_SESSION['mdp']);
-        }
-        //On affiche de nouveau le formulaire de connexion
-        include($originDir.'/app/views/connexion.php');
-    }
-?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Daktari</title>
+</head>
+<body>
+    <div class="login_Container">
+        <h1>
+            (Re)Bonjour !
+        </h1>
+        <form action="connexion.php" method="get">
+            <p>Utilisateur</p>
+            <input type="text" name="login" required>
+            <p>Mot de passe</p>
+            <input type="text" name="mdp" required>
+            <input id="submitBtn" type="submit" value="Se connecter">
+        </form>
+    </div>
+</body>
+</html>
