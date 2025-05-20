@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <title>Ajouter une consultation</title>
+    <title>Ajouter une entreprise</title>
 </head>
 <body>
     <div class="mainContainer">
@@ -43,6 +43,26 @@
             <a href="connexion.php">se déconnecter</a>
         </div>
 
+        <?php 
+            if (isset($err)){
+                echo "<div id=\"errContainer\" class=\"errContainer\">";
+                    echo "<div>";
+                        echo "<h1>erreur :</h1>";
+                        echo "<p>$err</p>";
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($err);
+            } if (isset($msg)){
+                echo "<div id=\"errContainer\" class=\"msgContainer\">";
+                    echo "<div>";
+                        echo "<p>$msg</p>";                        
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($msg);
+            }
+        ?>
         <div class="formContainer">
             <h1 class="formTitle">Nouvelle entreprise</h1>
             <form type="GET" action="nouvelleEntreprise.php">
@@ -52,16 +72,16 @@
                     <div></div>
                 </div> 
                 <span>
-                    Nom : <input type="text" name="nom" >
+                    Nom : <input type="text" name="nom" required>
                 </span>
                 <span>
-                    Adresse : <input type="text" name="adresse" >
+                    Adresse : <input type="text" name="adresse" required>
                 </span>
                 <span>
-                    Téléphone : <input type="text" name="telephone" >
+                    Téléphone : <input type="text" name="telephone" required>
                 </span>
                 <span>
-                    Mail : <input type="text" name="mail" >
+                    Mail : <input type="text" name="mail" required>
                 </span>
                 <div class="sectionTitleContainer">
                     <div></div>    
@@ -70,15 +90,20 @@
                 </div>
                 
                 <span>
-                    Adresse site web : <input type="texte" name="nom" >
+                    Adresse site web : <input type="text" name="adresse_site_web" required>
                 </span>
                 <span>
-                    IBAN : <input type="texte" name="nom" >
+                    IBAN : <input type="text" name="IBAN" required>
                 </span>
                 <span>
                     Type d'entreprise :
-                    <select name="code">
+                    <select name="code" required>
                         <option value="">Selectionnez un type...</option>
+                        <?php
+                            foreach ($typeList as $code => $libelle){
+                                echo "<option value=\"".$code."\">$libelle</option>";
+                            }
+                        ?>
                     </select>
                     <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
                 </span>
@@ -92,5 +117,6 @@
             </form>
         </div>
     </div>
+    <script src="script/fermerErr.js"></script>
 </body>
 </html>

@@ -209,7 +209,7 @@ span svg {
 .newBtnLeft {
     position: absolute;
     left: 0;
-    bottom: -140px;
+    top: 100px;
     border: none;
     max-width: 350px;
     background-color: #31656C;
@@ -221,6 +221,7 @@ span svg {
     font-weight: 400;
     font-style: normal;
     font-size: 32px;
+    text-align: left;
 }
 
 
@@ -417,12 +418,21 @@ input[type="submit"] {
     border-radius: 30px;
     border-collapse: separate;
     border-spacing: 0px;
-    width: calc(100% - 200px);
+    width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.tableContainer {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 200px);
 }
 
 thead {
+    position: sticky;
+    top: 0px;
     background-color: #31656C;
     color: #FCECD4;
     font-family: "Pacifico", cursive;
@@ -431,9 +441,6 @@ thead {
     font-size: 40px;
 }
 
-tr:first-child {
-    border-radius: 30px;
-}
 
 
 th, td {
@@ -459,12 +466,149 @@ td {
     font-style: normal;
     font-size: 32px;
     color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
 }
 
 tr:last-child td:last-child {
     border-bottom-right-radius: 20px;
 }
 
-th:last-child {
+tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+}
+
+tr:last-child th:last-child {
     border-top-right-radius: 20px;
+}
+
+tr:last-child th:first-child {
+    border-top-left-radius: 20px;
+}
+
+.deleteBtn {
+    color: #FCECD4;
+    text-decoration: none;
+    background-color: #D21717;
+    border-radius: 30px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    position: absolute;
+    bottom: 10px;
+    left: -90px;
+}
+
+.errContainer {
+    position: absolute;
+    top: 30%;
+    left: calc(37.5% - 20px);
+    width: 25%;
+    background-color: #D21717;
+    border-radius: 30px;
+
+    padding: 50px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 100000;
+}
+
+.errContainer div{
+    position: relative;
+    width: 100%;
+}
+
+.errContainer p {
+    color: #FCECD4;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 27px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.errContainer h1 {
+    color: #FCECD4;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    text-align: center;
+    margin: 0px;
+}
+
+.errContainer button {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/closeIcon.svg");
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+.msgContainer {
+    position: absolute;
+    top: 30%;
+    left: calc(37.5% - 20px);
+    width: 25%;
+    background-color: #0B2E49;
+    border-radius: 30px;
+
+    padding: 50px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 100000;
+}
+
+.msgContainer div{
+    position: relative;
+    width: 100%;
+}
+
+.msgContainer p {
+    color: #FCECD4;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 27px;
+    text-align: center;
+    margin: 0px;
+}
+
+
+.msgContainer button {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/closeIcon.svg");
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }

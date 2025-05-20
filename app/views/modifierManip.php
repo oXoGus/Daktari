@@ -43,43 +43,22 @@
             <a href="connexion.php">se déconnecter</a>
         </div>
 
-        <?php 
-            if (isset($err)){
-                echo "<div id=\"errContainer\" class=\"errContainer\">";
-                    echo "<div>";
-                        echo "<h1>erreur :</h1>";
-                        echo "<p>$err</p>";
-                        echo '<button type="button" onClick="fermerErr()"></button>';
-                    echo "</div>";
-                echo "</div>";
-                unset($err);
-            } if (isset($msg)){
-                echo "<div id=\"errContainer\" class=\"msgContainer\">";
-                    echo "<div>";
-                        echo "<p>$msg</p>";                        
-                        echo '<button type="button" onClick="fermerErr()"></button>';
-                    echo "</div>";
-                echo "</div>";
-                unset($msg);
-            }
-        ?>
-        
         <div class="formContainer">
             <h1 class="formTitle">Nouvelle manipulation</h1>
-            <form type="GET" action="nouvelleManip.php">
+            <form type="GET" action="nouveauParticulier.php">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
                 <span>
-                    Code : <input type="text" maxlength="8" name="code" >
+                    Code de 8 caractères max : <input type="text" name="code" >
                 </span>
                 <span>
-                    Tarif en centime : <input type="number" min="0" name="tarif" >
+                    Tarif en centime : <input type="text" name="tarif" >
                 </span>
                 <span>
-                    Durée de la manipulation en minutes :<input type="number" min="0" name="duree" >
+                    Durée de la manipulation en minutes :<input type="number" name="duree" >
                 </span>
 
                 <div class="btnSubResetContainer">
@@ -87,10 +66,11 @@
                     <input type="submit" value="Sauvegarder">
                 </div>
 
+                <a class="deleteBtn" href="deleteManip.php">supprimer</a>
+
                 <div style="margin-bottom: 50px;"></div>
             </form>
         </div>
     </div>
-    <script src="script/fermerErr.js"></script>
 </body>
 </html>

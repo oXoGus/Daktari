@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <title>Nouvelle manipulation</title>
+    <title>Rechercher un particulier</title>
 </head>
 <body>
     <div class="mainContainer">
@@ -43,54 +43,73 @@
             <a href="connexion.php">se déconnecter</a>
         </div>
 
-        <?php 
-            if (isset($err)){
-                echo "<div id=\"errContainer\" class=\"errContainer\">";
-                    echo "<div>";
-                        echo "<h1>erreur :</h1>";
-                        echo "<p>$err</p>";
-                        echo '<button type="button" onClick="fermerErr()"></button>';
-                    echo "</div>";
-                echo "</div>";
-                unset($err);
-            } if (isset($msg)){
-                echo "<div id=\"errContainer\" class=\"msgContainer\">";
-                    echo "<div>";
-                        echo "<p>$msg</p>";                        
-                        echo '<button type="button" onClick="fermerErr()"></button>';
-                    echo "</div>";
-                echo "</div>";
-                unset($msg);
-            }
-        ?>
-        
         <div class="formContainer">
-            <h1 class="formTitle">Nouvelle manipulation</h1>
-            <form type="GET" action="nouvelleManip.php">
+            <h1 class="formTitle">Nouveau particulier</h1>
+            <form type="GET" action="rechercherParticulier.php">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
                 <span>
-                    Code : <input type="text" maxlength="8" name="code" >
+                    Nom : <input type="text" name="nom" >
                 </span>
                 <span>
-                    Tarif en centime : <input type="number" min="0" name="tarif" >
+                    Prénom : <input type="text" name="prenom" >
                 </span>
                 <span>
-                    Durée de la manipulation en minutes :<input type="number" min="0" name="duree" >
+                    Date de naissance : <input type="date" name="dateNaiss" >
+                </span>
+                <span>
+                    Adresse : <input type="text" name="adresse" >
+                </span>
+                <span>
+                    Téléphone : <input type="text" name="telephone" >
+                </span>
+                <span>
+                    Mail : <input type="text" name="mail" >
                 </span>
 
                 <div class="btnSubResetContainer">
-                    <input type="reset" value="Reinitialiser">
-                    <input type="submit" value="Sauvegarder">
+                    <input type="reset" value="reinitialiser">
+                    <input type="submit" value="rechercher">
                 </div>
 
                 <div style="margin-bottom: 50px;"></div>
             </form>
         </div>
+
+        <div class="responseContainer">
+            <div class="tableContainer">
+                <div class="sectionTitleContainer">
+                        <div></div>    
+                        <h2 class="sectionTitle">.. manipulation trouvés</h2>
+                        <div></div>
+                    </div> 
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nom</th>
+                            <th>prénom</th>
+                            <th>date de naissance</th>
+                            <th>adresse</th>
+                            <th>téléphone</th>
+                            <th>mail</th>
+                            <th>voir plus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>id</td>
+                            <td>animal</td>
+                            <td>date</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <script src="script/fermerErr.js"></script>
 </body>
 </html>

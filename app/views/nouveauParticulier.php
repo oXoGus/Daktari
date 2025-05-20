@@ -43,6 +43,27 @@
             <a href="connexion.php">se déconnecter</a>
         </div>
 
+        <?php 
+            if (isset($err)){
+                echo "<div id=\"errContainer\" class=\"errContainer\">";
+                    echo "<div>";
+                        echo "<h1>erreur :</h1>";
+                        echo "<p>$err</p>";
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($err);
+            } if (isset($msg)){
+                echo "<div id=\"errContainer\" class=\"msgContainer\">";
+                    echo "<div>";
+                        echo "<p>$msg</p>";                        
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($msg);
+            }
+        ?>
+
         <div class="formContainer">
             <h1 class="formTitle">Nouveau particulier</h1>
             <form type="GET" action="nouveauParticulier.php">
@@ -58,7 +79,7 @@
                     Prénom : <input type="text" name="prenom" >
                 </span>
                 <span>
-                    Date de naissance : <input type="date" name="dateNaiss" >
+                    Date de naissance : <input type="date" name="date_de_naissance" >
                 </span>
                 <span>
                     Adresse : <input type="text" name="adresse" >
@@ -79,5 +100,6 @@
             </form>
         </div>
     </div>
+    <script src="script/fermerErr.js"></script>
 </body>
 </html>

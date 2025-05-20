@@ -117,30 +117,37 @@
         </div>
 
         <div class="responseContainer">
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>animal</th>
-                        <th>date</th>
-                        <th>Où</th>
-                        <th>type</th>
-                        <th>consultation antérieur</th>
-                        <th>voir plus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>id</td>
-                        <td>animal</td>
-                        <td>date</td>
-                        <td>Où</td>
-                        <td>type</td>
-                        <td>consultation antérieur</td>
-                        <td>voir plus</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="tableContainer">
+                <div class="sectionTitleContainer">
+                        <div></div>    
+                        <h2 class="sectionTitle">.. consultations trouvés</h2>
+                        <div></div>
+                    </div> 
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>animal</th>
+                            <th>date</th>
+                            <th>Où</th>
+                            <th>type</th>
+                            <th>consultation antérieur</th>
+                            <th>voir plus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>id</td>
+                            <td>animal</td>
+                            <td>date</td>
+                            <td>Où</td>
+                            <td>type</td>
+                            <td>consultation antérieur</td>
+                            <td>voir plus</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
