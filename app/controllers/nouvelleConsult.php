@@ -3,10 +3,11 @@
     include($originDir."/config/middleware.php");
 
     // si l'utilisateur a bien envoyé le form
-    if (isset($_GET['animal']) && isset($_GET['date_consult']) && isset($_GET['time_consult']) && isset($_GET['anamnese']) && isset($_GET['resume']) && isset($_GET['type_localisation']) && isset($_GET['tarif']) && isset($_GET['raison_tarif_exceptionnel']) && isset($_GET['prev_consult']) && isset($_GET['manip']) && isset($_GET['traitement'])) {
+    if (isset($_GET['animal']) && isset($_GET['date_consult']) && isset($_GET['time_consult']) && isset($_GET['anamnese']) && isset($_GET['resume']) && isset($_GET['type_localisation']) && isset($_GET['tarif']) && isset($_GET['raison_tarif_exceptionnel']) && isset($_GET['prev_consult']) && isset($_GET['manip']) && isset($_GET['traitement']) && isset($_GET['duree'])) {
 
         // on format la date de la consultation pour la bdd
         $dateConsult = $_GET['date_consult'].' '.$_GET['time_consult'].':00';
+        $dureeConsult = $_GET['duree'].":00"; 
 
         include($originDir."/app/models/nouvelleConsult.php");
     }
@@ -55,7 +56,6 @@
         $traitements[$traitement->id] = $traitement;
     }
 
-    
 
     // on affiche la page dynamique
     include($originDir."/app/views/nouvelleConsult.php");

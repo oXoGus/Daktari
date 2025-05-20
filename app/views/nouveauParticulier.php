@@ -33,7 +33,7 @@
                 <div class="menuDeroulant">
                     <a class="menuItem" href="rechercherAnimal.php">un animal</a>
                     <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
-                    <a class="menuItem" href="rechercherParticuler.php">un particulier</a>
+                    <a class="menuItem" href="rechercherParticulier.php">un particulier</a>
                     <a class="menuItem" href="rechercherConsult.php">une consultation</a>
                     <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
                     <a class="menuItem" href="rechercherManip.php">une manipulation</a>

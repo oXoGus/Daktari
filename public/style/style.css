@@ -1,10 +1,59 @@
 :root {
     accent-color: #993E1E;
+    --font-size: 32px;
 }
 
 body {
     background-color: #31656C;
 }
+@media (max-width:1600px) {
+    :root {
+        accent-color: #993E1E;
+        --font-size: 28px;
+    }
+ }
+
+@media (max-width:1500px) {
+    :root {
+        accent-color: #993E1E;
+        --font-size: 28px;
+    }
+ }
+
+@media (max-width:1400px) {
+    :root {
+        accent-color: #993E1E;
+        --font-size: 24px;
+    }
+ }
+
+@media (max-width:1300px) {
+    :root {
+        accent-color: #993E1E;
+        --font-size: 21px;
+    }
+ }
+
+@media (max-width:1200px) {
+    :root {
+        accent-color: #993E1E;
+        --font-size: 17px;
+    }
+ }
+
+ @media (max-width:1100px) {
+    :root {
+        accent-color: #993E1E;
+        --font-size: 15px;
+    }
+ }
+
+ @media (max-width:1000px) {
+    :root {
+        accent-color: #993E1E;
+        --font-size: 13px;
+    }
+ }
 
 .login_Container {
     background-color: #FCECD4;
@@ -20,7 +69,7 @@ a {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
+    font-size: var(--font-size);
 
 }
 
@@ -52,11 +101,11 @@ a {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
+    font-size: var(--font-size);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-left: 20px;
-    width: 190px;
+    width: 12%;
     z-index: 100;
 }
 
@@ -77,6 +126,10 @@ a {
 }
 
 .flecheBas {
+    fill:#993E1E;
+}
+
+.span svg {
     fill:#993E1E;
 }
 
@@ -103,7 +156,7 @@ a {
 .menuDeroulant .menuItem {
     color: #FCECD4;
     background-color: #993E1E;
-    font-size: 24px;
+    font-size: calc(var(--font-size) - 3px);
     white-space: nowrap;
     padding-left: 10px;
     padding-right: 10px;
@@ -148,23 +201,20 @@ form {
 }
 
 form span {
-    align-items: center;
+    align-items: baseline;
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 40px;
+    font-size: var(--font-size);
     color: #0B2E49;
 }
 
-span svg {
-    transform: translateY(-5px);
-}
 
 .formTitle {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 96px;
+    font-size: calc(var(--font-size) + 54px);
     color: #993E1E;
     margin: 0px;
 }
@@ -184,7 +234,7 @@ span svg {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 64px;
+    font-size: calc(var(--font-size) + 32px);
     color: #31656C;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -211,7 +261,7 @@ span svg {
     left: 0;
     top: 100px;
     border: none;
-    max-width: 350px;
+    max-width: 20%;
     background-color: #31656C;
     color: #FCECD4;
     border-radius: 30px;
@@ -220,7 +270,7 @@ span svg {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
+    font-size: var(--font-size);
     text-align: left;
 }
 
@@ -257,7 +307,7 @@ span svg {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 35px;
+    font-size: var(--font-size);
     border: none;
 }
 
@@ -274,7 +324,7 @@ h1 {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 60px;
+    font-size: calc(var(--font-size) + 25px);
 }
 
 input[type="text"], input[type="number"], textarea {
@@ -284,7 +334,7 @@ input[type="text"], input[type="number"], textarea {
     font-weight: 500;
     font-style: normal;
     color: #434343;
-    font-size: 30px;
+    font-size: var(--font-size);
     padding-left: 5px;
 }
 
@@ -305,7 +355,7 @@ select {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 35px;
+    font-size: var(--font-size);
     appearance: none;
 }
 
@@ -329,10 +379,9 @@ input[type="reset"] {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
+    font-size: var(--font-size);
     padding-top: 0px;
     padding-bottom: 0px;
-    height: 58.25px;
 }
 
 input[type="date"], input[type="time"] {
@@ -349,7 +398,7 @@ h2 {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 50px;
+    font-size: calc(var(--font-size) + 15px);
 }
 
 .vaccin {
@@ -398,7 +447,7 @@ input[type="submit"] {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
+    font-size: var(--font-size);
 }
 
 .responseContainer {
@@ -419,7 +468,6 @@ input[type="submit"] {
     border-collapse: separate;
     border-spacing: 0px;
     width: 100%;
-    margin-top: 20px;
     margin-bottom: 20px;
     overflow: hidden;
 }
@@ -428,6 +476,7 @@ input[type="submit"] {
     display: flex;
     flex-direction: column;
     width: calc(100% - 200px);
+    align-items: center;
 }
 
 thead {
@@ -438,7 +487,7 @@ thead {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 40px;
+    font-size: var(--font-size);
 }
 
 
@@ -455,21 +504,22 @@ th {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
+    font-size: var(--font-size);
     color: #FCECD4;
 }
 
 td {
     text-align: center;
-    font-family: "Pacifico", cursive;
-    font-weight: 400;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
     font-style: normal;
-    font-size: 32px;
+    font-size: calc(var(--font-size) - 7px);
     color: black;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100px;
+    padding-left: 5px;
 }
 
 tr:last-child td:last-child {
@@ -499,7 +549,7 @@ tr:last-child th:first-child {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
+    font-size: var(--font-size);
     position: absolute;
     bottom: 10px;
     left: -90px;
@@ -532,7 +582,7 @@ tr:last-child th:first-child {
     font-family: "DM Mono", monospace;
     font-weight: 500;
     font-style: normal;
-    font-size: 27px;
+    font-size: calc(var(--font-size) - 5px);
     text-align: center;
     margin-top: 5px;
 }
@@ -542,7 +592,7 @@ tr:last-child th:first-child {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 35px;
+    font-size: var(--font-size);
     text-align: center;
     margin: 0px;
 }
@@ -591,7 +641,7 @@ tr:last-child th:first-child {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 27px;
+    font-size: calc(var(--font-size) - 5px);
     text-align: center;
     margin: 0px;
 }
@@ -611,4 +661,49 @@ tr:last-child th:first-child {
     border: none;
     cursor: pointer;
     padding: 0;
+}
+
+
+.noResponseContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.noResponseContainer p {
+    color: #0B2E49;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--font-size);
+    text-align: center;
+    margin: 0px;
+}
+
+.noResponseContainer a {
+    color: #FCECD4;
+    text-decoration: none;
+    background-color: #31656C;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--font-size);
+}
+
+
+td a {
+    color: #FCECD4;
+    text-decoration: none;
+    background-color: #993E1E;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: calc(var(--font-size) - 5px);
 }

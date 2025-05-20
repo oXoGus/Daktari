@@ -20,7 +20,7 @@
                 <span class="menuDeroulantBtn">ajouter...<svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg></span>
                 <div class="menuDeroulant">
                     <a class="menuItem" href="nouvelAnimal.php">un animal</a>
-                    <a class="menuItem" href="nouvelleEntreprise.php">une entreprise</a>
+                    <a class="menuItem" href="nouvelleparticulier.php">une particulier</a>
                     <a class="menuItem" href="nouveauParticulier.php">un particulier</a>
                     <a class="menuItem" href="nouvelleConsult.php">une consultation</a>
                     <a class="menuItem" href="nouveauTraitement.php">un traitement</a>
@@ -32,8 +32,8 @@
                 <span class="menuDeroulantBtn">rechercher...<svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg></span>
                 <div class="menuDeroulant">
                     <a class="menuItem" href="rechercherAnimal.php">un animal</a>
-                    <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
-                    <a class="menuItem" href="rechercherParticuler.php">un particulier</a>
+                    <a class="menuItem" href="rechercherparticulier.php">une particulier</a>
+                    <a class="menuItem" href="rechercherParticulier.php">un particulier</a>
                     <a class="menuItem" href="rechercherConsult.php">une consultation</a>
                     <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
                     <a class="menuItem" href="rechercherManip.php">une manipulation</a>
@@ -45,29 +45,29 @@
 
         <div class="formContainer">
             <h1 class="formTitle">Nouveau particulier</h1>
-            <form type="GET" action="rechercherParticulier.php">
+            <form type="GET" action="rechercherParticulier.php#result">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
                 <span>
-                    Nom : <input type="text" name="nom" >
+                    Nom : <input type="text" maxlength="50" name="nom" <?php if (isset($_GET['nom'])) {echo "value=\"".$_GET['nom']."\"";}?>>
                 </span>
                 <span>
-                    Prénom : <input type="text" name="prenom" >
+                    Prénom : <input type="text" maxlength="50" name="prenom" <?php if (isset($_GET['prenom'])) {echo "value=\"".$_GET['prenom']."\"";}?>>
                 </span>
                 <span>
-                    Date de naissance : <input type="date" name="dateNaiss" >
+                    Date de naissance : <input type="date" name="date_de_naissance" <?php if (isset($_GET['date_de_naissance'])) {echo "value=\"".$_GET['date_de_naissance']."\"";}?>>
                 </span>
                 <span>
-                    Adresse : <input type="text" name="adresse" >
+                    Adresse : <input type="text" maxlength="50" name="adresse" <?php if (isset($_GET['adresse'])) {echo "value=\"".$_GET['adresse']."\"";}?>>
                 </span>
                 <span>
-                    Téléphone : <input type="text" name="telephone" >
+                    Téléphone : <input type="text" maxlength="15" name="telephone" <?php if (isset($_GET['telephone'])) {echo "value=\"".$_GET['telephone']."\"";}?>>
                 </span>
                 <span>
-                    Mail : <input type="text" name="mail" >
+                    Mail : <input type="text" maxlength="50" name="mail" <?php if (isset($_GET['mail'])) {echo "value=\"".$_GET['mail']."\"";}?>>
                 </span>
 
                 <div class="btnSubResetContainer">
@@ -79,35 +79,58 @@
             </form>
         </div>
 
-        <div class="responseContainer">
+        <div id="result" class="responseContainer">
             <div class="tableContainer">
-                <div class="sectionTitleContainer">
-                        <div></div>    
-                        <h2 class="sectionTitle">.. manipulation trouvés</h2>
-                        <div></div>
-                    </div> 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>nom</th>
-                            <th>prénom</th>
-                            <th>date de naissance</th>
-                            <th>adresse</th>
-                            <th>téléphone</th>
-                            <th>mail</th>
-                            <th>voir plus</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>id</td>
-                            <td>animal</td>
-                            <td>date</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <?php
+                    if (!empty($particulierTrouveLst)){
+                        echo '
+                        <div class="sectionTitleContainer">
+                                <div></div>    
+                                <h2 class="sectionTitle">'.count($particulierTrouveLst).' particuliers trouvés</h2>
+                                <div></div>
+                            </div> 
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>nom</th>
+                                    <th>prénom</th>
+                                    <th style="width: min-content">date de naissance</th>
+                                    <th>adresse</th>
+                                    <th>téléphone</th>
+                                    <th>mail</th>
+                                    <th>voir plus</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+                            foreach ($particulierTrouveLst as $particulier){
+                                echo "
+                                <tr>
+                                    <td>$particulier->nom</td>
+                                    <td>$particulier->prenom</td>
+                                    <td>$particulier->date_de_naissance</td>
+                                    <td>$particulier->adresse
+                                    <td>$particulier->telephone</td>
+                                    <td>$particulier->mail</td>
+                                    <td><a href=\"modifierparticulier.php?id=$particulier->id\">voir/modifier</a></td>
+                                </tr>";
+                            }
+                            echo '</tbody>
+                        </table>';
+                    } else {
+                        echo '
+                            <div class="sectionTitleContainer">
+                                <div></div>    
+                                <h2 class="sectionTitle">aucun particulier trouvé</h2>
+                                <div></div>
+                            </div> 
+                            <div class="noResponseContainer">
+                                <p>Réessayer</p>
+                                <p>ou</p>
+                                <a href="nouveauParticulier.php">ajouter un particulier</a>
+                            </div>
+                        ';
+                    }
+                ?>
             </div>
         </div>
     </div>

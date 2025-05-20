@@ -33,7 +33,7 @@
                 <div class="menuDeroulant">
                     <a class="menuItem" href="rechercherAnimal.php">un animal</a>
                     <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
-                    <a class="menuItem" href="rechercherParticuler.php">un particulier</a>
+                    <a class="menuItem" href="rechercherParticulier.php">un particulier</a>
                     <a class="menuItem" href="rechercherConsult.php">une consultation</a>
                     <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
                     <a class="menuItem" href="rechercherManip.php">une manipulation</a>
@@ -122,7 +122,7 @@
                     <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
                 </span>
                 <span>
-                    Tarif : <input type="number" name="tarif">
+                    Tarif : <input type="number" min="0" name="tarif">
                 </span>
                 <span>
                     Raison du tarif exeptionnel : 

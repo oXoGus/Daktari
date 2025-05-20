@@ -5,7 +5,7 @@
         $cnx->beginTransaction();
 
         // on crée d'abord la consultation 
-        $res = $cnx->query("INSERT INTO consultation (anamnese, diagnostique, type_localisation, resume, duree, prev_consult) VALUES (".$cnx->quote($_GET['anamnese']).", ".$cnx->quote($_GET['diagnostique']).", ".$cnx->quote($_GET['type_localisation']).", ".$cnx->quote($_GET['resume']).", ".$cnx->quote($_GET['duree'].":00").", ".(empty($_GET['prev_consult']) ? "NULL" : $_GET['prev_consult']).") RETURNING id");
+        $res = $cnx->query("INSERT INTO consultation (anamnese, diagnostique, type_localisation, resume, duree, prev_consult) VALUES (".$cnx->quote($_GET['anamnese']).", ".$cnx->quote($_GET['diagnostique']).", ".$cnx->quote($_GET['type_localisation']).", ".$cnx->quote($_GET['resume']).", ".$cnx->quote($dureeConsult).", ".(empty($_GET['prev_consult']) ? "NULL" : $_GET['prev_consult']).") RETURNING id");
         $id = $res->fetch(PDO::FETCH_OBJ)->id;
         $res->closeCursor();
 

@@ -33,7 +33,7 @@
                 <div class="menuDeroulant">
                     <a class="menuItem" href="rechercherAnimal.php">un animal</a>
                     <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
-                    <a class="menuItem" href="rechercherParticuler.php">un particulier</a>
+                    <a class="menuItem" href="rechercherParticulier.php">un particulier</a>
                     <a class="menuItem" href="rechercherConsult.php">une consultation</a>
                     <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
                     <a class="menuItem" href="rechercherManip.php">une manipulation</a>
@@ -44,21 +44,21 @@
         </div>
 
         <div class="formContainer">
-            <h1 class="formTitle">Nouvelle manipulation</h1>
-            <form type="GET" action="nouveauParticulier.php">
+            <h1 class="formTitle">rechercher une manipulation</h1>
+            <form type="GET" action="rechercherManip.php#result">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
                 <span>
-                    Code de 8 caractères max : <input type="text" name="code" >
+                    Code de 8 caractères max : <input type="text" maxlength="8" name="code" <?php if (isset($_GET['code'])) {echo "value=\"".$_GET['code']."\"";}?>>
                 </span>
                 <span>
-                    Tarif en centime : <input type="text" name="tarif" >
+                    Tarif en centime : <input type="text" min="0" name="tarif" <?php if (isset($_GET['tarif'])) {echo "value=\"".$_GET['tarif']."\"";}?>>
                 </span>
                 <span>
-                    Durée de la manipulation en minutes :<input type="number" name="duree" >
+                    Durée de la manipulation en minutes :<input type="number" min="0" name="duree" <?php if (isset($_GET['duree'])) {echo "value=\"".$_GET['duree']."\"";}?>>
                 </span>
 
                 <div class="btnSubResetContainer">
@@ -70,31 +70,52 @@
             </form>
         </div>
 
-        <div class="responseContainer">
+        <div id="result" class="responseContainer">
             <div class="tableContainer">
-                <div class="sectionTitleContainer">
-                        <div></div>    
-                        <h2 class="sectionTitle">.. manipulation trouvés</h2>
-                        <div></div>
-                    </div> 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>code</th>
-                            <th>tarif</th>
-                            <th>durée</th>
-                            <th>voir/modifier</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>id</td>
-                            <td>animal</td>
-                            <td>date</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <?php
+                    if (!empty($manipTrouveLst)){
+                        echo '
+                        <div class="sectionTitleContainer">
+                                <div></div>    
+                                <h2 class="sectionTitle">'.count($manipTrouveLst).' manipulations trouvées</h2>
+                                <div></div>
+                            </div> 
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>code</th>
+                                    <th>tarif</th>
+                                    <th>duree</th>
+                                    <th>voir plus</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+                            foreach ($manipTrouveLst as $manip){
+                                echo "
+                                <tr>
+                                    <td>$manip->code</td>
+                                    <td>$manip->tarif</td>
+                                    <td>$manip->duree</td>
+                                    <td><a href=\"modifierManip.php?id=$manip->code\">voir/modifier</a></td>
+                                </tr>";
+                            }
+                            echo '</tbody>
+                        </table>';
+                    } else {
+                        echo '
+                            <div class="sectionTitleContainer">
+                                <div></div>    
+                                <h2 class="sectionTitle">aucune manipulation trouvée</h2>
+                                <div></div>
+                            </div> 
+                            <div class="noResponseContainer">
+                                <p>Réessayer</p>
+                                <p>ou</p>
+                                <a href="nouvelleManip.php">ajouter une manipulation</a>
+                            </div>
+                        ';
+                    }
+                ?>
             </div>
         </div>
     </div>
