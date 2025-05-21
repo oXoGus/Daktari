@@ -10,6 +10,9 @@
     <title>Daktari</title>
 </head>
 <body>
+
+    
+
     <div class="mainContainer">
         <div class="loginContainer">
             <h1>(Re)Bonjour !</h1>
@@ -23,8 +26,16 @@
                 </div>
                 <input type="submit" value="Se connecter">
             </form>
+            <?php 
+                if (isset($err)){
+                    echo "<div class=\"errLogin\">";
+                        echo "<p>$err</p>";
+                    echo "</div>";
+                    unset($err);
+                } 
+            ?>
         </div>    
     </div>
-    <script src="script/affichageMDP.js"> </script>
+    <script src="script/affichageMDP.js"></script>
 </body>
 </html>
