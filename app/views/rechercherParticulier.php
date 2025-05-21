@@ -42,10 +42,9 @@
             </div>
             <a href="connexion.php">se déconnecter</a>
         </div>
-
         <div class="formContainer">
-            <h1 class="formTitle">Nouveau particulier</h1>
-            <form type="GET" action="rechercherParticulier.php#result">
+            <h1 class="formTitle">Rechercher un particulier</h1>
+            <form method="GET" action="rechercherParticulier.php#result">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>
@@ -111,7 +110,7 @@
                                     <td>$particulier->adresse
                                     <td>$particulier->telephone</td>
                                     <td>$particulier->mail</td>
-                                    <td><a href=\"modifierparticulier.php?id=$particulier->id\">voir/modifier</a></td>
+                                    <td><a href=\"modifierParticulier.php?id=$particulier->id\">voir/modifier</a></td>
                                 </tr>";
                             }
                             echo '</tbody>

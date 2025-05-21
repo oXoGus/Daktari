@@ -42,7 +42,7 @@
         </div>
         <div class="formContainer">
         <h1 class="formTitle">Ajouter un animal</h1>
-        <form type="GET" action="nouvelAnimal.php">
+        <form method="GET" action="nouvelAnimal.php">
             <div class="sectionTitleContainer">
                 <div></div>
                 <h2 class="sectionTitle">Responsable</h2>

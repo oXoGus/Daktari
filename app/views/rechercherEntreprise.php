@@ -45,7 +45,7 @@
 
         <div class="formContainer">
             <h1 class="formTitle">Rechercher une entreprise</h1>
-            <form type="GET" action="rechercherEntreprise.php#result">
+            <form method="GET" action="rechercherEntreprise.php#result">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>

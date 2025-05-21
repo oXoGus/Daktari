@@ -45,7 +45,7 @@
 
         <div class="formContainer">
             <h1 class="formTitle">rechercher une manipulation</h1>
-            <form type="GET" action="rechercherManip.php#result">
+            <form method="GET" action="rechercherManip.php#result">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>
@@ -96,7 +96,7 @@
                                     <td>$manip->code</td>
                                     <td>$manip->tarif</td>
                                     <td>$manip->duree</td>
-                                    <td><a href=\"modifierManip.php?id=$manip->code\">voir/modifier</a></td>
+                                    <td><a href=\"modifierManip.php?code=$manip->code\">voir/modifier</a></td>
                                 </tr>";
                             }
                             echo '</tbody>

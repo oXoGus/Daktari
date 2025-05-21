@@ -45,7 +45,7 @@
         <h2 class="sectionTitle">Infos générales</h2>
         <div></div>
         </div>
-        <form type="get" action="traitement_ajouter.php">
+        <form method="get" action="traitement_ajouter.php">
         <div class="info">
             <span>
                 Produit : <input type="text" name="produit"></span><br>

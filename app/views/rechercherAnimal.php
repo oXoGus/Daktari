@@ -44,7 +44,7 @@
                 <h1 class="formContainerTitle">
                     Rechercher un animal
                 </h1>
-                <form type="GET" action="rechercherAnimal.php">
+                <form method="GET" action="rechercherAnimal.php">
                     <div class="sectionTitleContainer">
                         <div></div>
                         <h2 class="sectionTitle">Responsable</h2>

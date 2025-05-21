@@ -10,17 +10,21 @@
     <title>Daktari</title>
 </head>
 <body>
-    <div class="login_Container">
-        <h1>
-            (Re)Bonjour !
-        </h1>
-        <form action="connexion.php" method="get">
-            <p>Utilisateur</p>
-            <input type="text" name="login" required>
-            <p>Mot de passe</p>
-            <input type="text" name="mdp" required>
-            <input id="submitBtn" type="submit" value="Se connecter">
-        </form>
+    <div class="mainContainer">
+        <div class="loginContainer">
+            <h1>(Re)Bonjour !</h1>
+            <form action="connexion.php" method="get">
+                <p>Utilisateur</p>
+                <input type="text" autocomplete="off" name="login" required>
+                <p>Mot de passe</p>
+                <div class="inputContainer">
+                    <input id="mdp" type="password" name="mdp" required>
+                    <button type="button" id="btnEye" class="btnEye" onclick="changerVisibiliteMDP('mdp', 'btnEye')" ></button>
+                </div>
+                <input type="submit" value="Se connecter">
+            </form>
+        </div>    
     </div>
+    <script src="script/affichageMDP.js"> </script>
 </body>
 </html>

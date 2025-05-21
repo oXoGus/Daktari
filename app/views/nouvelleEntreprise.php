@@ -65,7 +65,7 @@
         ?>
         <div class="formContainer">
             <h1 class="formTitle">Nouvelle entreprise</h1>
-            <form type="GET" action="nouvelleEntreprise.php">
+            <form method="GET" action="nouvelleEntreprise.php">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>

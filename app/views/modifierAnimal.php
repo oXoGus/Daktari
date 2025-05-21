@@ -45,7 +45,7 @@
                 <h1 class="formContainerTitle">
                     Animal n°...
                 </h1>
-                <form type="GET" action="modifierAnimal">
+                <form method="GET" action="modifierAnimal">
                     <div class="sectionTitleContainer">
                         <div></div>
                         <h2 class="sectionTitle">

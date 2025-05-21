@@ -44,7 +44,7 @@
                 <h1 class="formContainerTitle">
                     Rechercher un utilisateur
                 </h1>
-                <form type="GET" action="rechercherUtilisateur">
+                <form method="GET" action="rechercherUtilisateur">
                     <div class="sectionTitleContainer">
                         <div></div>
                         <h2 class="sectionTitle">Infos Générales</h2>

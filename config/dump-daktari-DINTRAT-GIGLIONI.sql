@@ -21,7 +21,7 @@ CREATE TABLE consultation(
    type_localisation loc NOT NULL,
    resume VARCHAR(255),
    duree TIME,
-   prev_consult integer references consultation(id)
+   prev_consult integer references consultation(id) on delete cascade
 );
 
 CREATE TABLE manipulation(
@@ -41,7 +41,7 @@ CREATE TABLE traitement(
 );
 
 CREATE TABLE particulier(
-   id serial primary key references responsable(id),
+   id serial primary key references responsable(id) on delete cascade,
    prenom VARCHAR(50),
    date_de_naissance DATE
 );
@@ -70,20 +70,20 @@ CREATE TABLE animaux(
    castre boolean NOT NULL,
    taille DECIMAL(15,2),
    poids DECIMAL(15,2),
-   id_responsable serial references responsable(id)
+   id_responsable serial references responsable(id) on delete cascade
 );
 
 CREATE TABLE professionnel(
-   id serial primary key references responsable(id),
-   code VARCHAR(10) NOT NULL references type_professionnel(code),
+   id serial primary key references responsable(id) on delete cascade,
+   code VARCHAR(10) NOT NULL references type_professionnel(code) on delete cascade,
    adresse_site_web VARCHAR(50),
    IBAN VARCHAR(27) NOT NULL unique
 );
 
 CREATE TABLE traiter(
-   animal_id serial references animaux(id),
-   consultation_id serial references consultation(id),
-   type_soin VARCHAR(50) references type_consult(type_soin),
+   animal_id serial references animaux(id) on delete cascade,
+   consultation_id serial references consultation(id) on delete cascade,
+   type_soin VARCHAR(50) references type_consult(type_soin) on delete cascade,
    tarif_standard DECIMAL(15,2) NOT NULL,
    date_consult timestamp NOT NULL,
    raison_tarif_exceptionnel VARCHAR(100),
@@ -91,44 +91,44 @@ CREATE TABLE traiter(
 );
 
 CREATE TABLE manip_consult(
-   consultation_id serial references consultation(id),
-   code VARCHAR(8) references manipulation(code),
+   consultation_id serial references consultation(id) on delete cascade,
+   code VARCHAR(8) references manipulation(code) on delete cascade,
    PRIMARY KEY(consultation_id, code)
 );
 
 CREATE TABLE traitement_consult(
-   consultation_id serial references consultation(id),
-   traitement_id serial references traitement(id),
+   consultation_id serial references consultation(id) on delete cascade,
+   traitement_id serial references traitement(id) on delete cascade,
    PRIMARY KEY(consultation_id, traitement_id)
 );
 
 CREATE TABLE vacciner(
-   animal_id serial references animaux(id),
-   nom_vaccin VARCHAR(50) references vaccins(nom_vaccin),
+   animal_id serial references animaux(id) on delete cascade,
+   nom_vaccin VARCHAR(50) references vaccins(nom_vaccin) on delete cascade,
    date_vaccin DATE,
    PRIMARY KEY(animal_id, nom_vaccin)
 );
 
 
-INSERT INTO responsable (nom, adresse, telephone, mail) VALUES
-('LesLapinsDuCoin', '123 rue du Parc', '0123456789', 'leslapins@email.com'),
-('AbatoirDesChamps', '456 avenue des Champs', '0987654321', 'abatoirdeschamps@email.com'),
-('Dupont', '123 rue des Champs', '0175456789', 'dupontmax@email.com'),
-('Smith', '456 avenue du Parc', '0912654321', 'smithbella@email.com');
+INSERT INTO responsable (id, nom, adresse, telephone, mail) VALUES
+(1, 'LesLapinsDuCoin', '123 rue du Parc', '0123456789', 'leslapins@email.com'),
+(2, 'AbatoirDesChamps', '456 avenue des Champs', '0987654321', 'abatoirdeschamps@email.com'),
+(3, 'Dupont', '123 rue des Champs', '0175456789', 'dupontmax@email.com'),
+(4, 'Smith', '456 avenue du Parc', '0912654321', 'smithbella@email.com');
 
 INSERT INTO type_professionnel (code, libelle) VALUES
 ('T01', 'Elevage de lapins nains'),
 ('T02', 'Abatoir');
 
-INSERT INTO consultation (anamnese, diagnostique, type_localisation, resume, duree, prev_consult) VALUES
-('Chien malade', 'Infection urinaire', 'cabinet', 'Consultation initiale', '00:30:00', -1),
-('Vaccin', 'Vaccin', 'cabinet', 'Vaccin', '00:10:00', -1),
-('Chat avec douleurs', 'Fracture de la patte', 'cabinet', 'Fracture détectée', '00:45:00', -1),
-('Chat avec douleurs', 'Fracture de la patte', 'cabinet', 'operation', '00:45:00', 2),
-('Lapin malade', 'Infection urinaire', 'cabinet', 'Consultation initiale', '00:30:00', -1),
-('Vaccin', 'Vaccin', 'cabinet', 'Vaccin', '00:10:00', -1),
-('Chat malade', 'None', 'cabinet', 'Recherches en cours', '00:25:00', -1),
-('Chat malade', 'Torsion de estomac', 'cabinet', 'Radio effectuee', '00:45:00', 5);
+INSERT INTO consultation (id, anamnese, diagnostique, type_localisation, resume, duree, prev_consult) VALUES
+(1, 'Chien malade', 'Infection urinaire', 'cabinet', 'Consultation initiale', '00:30:00', NULL),
+(2, 'Vaccin', 'Vaccin', 'cabinet', 'Vaccin', '00:10:00', NULL),
+(3, 'Chat avec douleurs', 'Fracture de la patte', 'cabinet', 'Fracture détectée', '00:45:00', NULL),
+(4, 'Chat avec douleurs', 'Fracture de la patte', 'cabinet', 'operation', '00:45:00', 2),
+(5, 'Lapin malade', 'Infection urinaire', 'cabinet', 'Consultation initiale', '00:30:00', NULL),
+(6, 'Vaccin', 'Vaccin', 'cabinet', 'Vaccin', '00:10:00', NULL),
+(7, 'Chat malade', 'None', 'cabinet', 'Recherches en cours', '00:25:00', NULL),
+(8, 'Chat malade', 'Torsion de estomac', 'cabinet', 'Radio effectuee', '00:45:00', 5);
 
 INSERT INTO manipulation (code, tarif, duree) VALUES
 ('MYFAS', 3000, 10),
@@ -139,9 +139,9 @@ INSERT INTO traitement (produit, dilution, dose, duree_traitement, frequence, qu
 ('Arnica', 2, 10, 7, 2, 'Matin et soir'),
 ('cataplasme d''argile verte', 1, 5, 5, 3, 'Tous les jours');
 
-INSERT INTO particulier (prenom, date_de_naissance) VALUES
-('Max', '1990-05-20'),
-('Bella', '1975-11-11');
+INSERT INTO particulier (id, prenom, date_de_naissance) VALUES
+(3, 'Max', '1990-05-20'),
+(4, 'Bella', '1975-11-11');
 
 INSERT INTO type_consult (type_soin) VALUES
 ('Consultation générale'),
@@ -152,15 +152,15 @@ INSERT INTO vaccins (nom_vaccin) VALUES
 ('Rage'),
 ('Grippe');
 
-INSERT INTO animaux (nom, espece, race, genre, castre, taille, poids, id_responsable) VALUES
-('Rex', 'Chien', 'Berger Allemand', 'M', TRUE, 65.5, 30.2, 1),
-('minnie', 'lapin', 'nain angora', 'M', FALSE, 15.5, 1.2, 2),
-('Catty', 'Chat', 'Europeen', 'M', TRUE, 45.5, 7.2, 3),
-('Whiskers', 'Chat', 'Siamois', 'F', FALSE, 45.0, 8.5, 4);
+INSERT INTO animaux (id, nom, espece, race, genre, castre, taille, poids, id_responsable) VALUES
+(1, 'Rex', 'Chien', 'Berger Allemand', 'M', TRUE, 65.5, 30.2, 1),
+(2, 'minnie', 'lapin', 'nain angora', 'M', FALSE, 15.5, 1.2, 2),
+(3, 'Catty', 'Chat', 'Europeen', 'M', TRUE, 45.5, 7.2, 3),
+(4, 'Whiskers', 'Chat', 'Siamois', 'F', FALSE, 45.0, 8.5, 4);
 
-INSERT INTO professionnel(adresse_site_web, IBAN, code) VALUES
-('www.leslapinsducoin.fr', 'FR7630006000011234567890189', 'T01'),
-('www.abatoirdeschamps.com', 'FR7630006000019876543210198', 'T02');
+INSERT INTO professionnel(id, adresse_site_web, IBAN, code) VALUES
+(1, 'www.leslapinsducoin.fr', 'FR7630006000011234567890189', 'T01'),
+(2, 'www.abatoirdeschamps.com', 'FR7630006000019876543210198', 'T02');
 
 INSERT INTO traiter (animal_id, consultation_id, type_soin, date_consult, tarif_standard, raison_tarif_exceptionnel) VALUES
 (1, 1, 'Consultation générale', '2019-12-01 12:03:00', 3000, 'Aucune'),
@@ -176,6 +176,7 @@ INSERT INTO manip_consult (consultation_id, code) VALUES
 (6, 'MYFAS'),
 (2, 'MATFA'),
 (3, 'MSCSQ');
+
 
 INSERT INTO traitement (produit, dilution, dose, duree_traitement, frequence, quand) VALUES 
 ('Arnica', 2, 10, 7, 2, 'Matin et soir'),

@@ -66,7 +66,7 @@
 
         <div class="formContainer">
             <h1 class="formTitle">Nouveau particulier</h1>
-            <form type="GET" action="nouveauParticulier.php">
+            <form method="GET" action="nouveauParticulier.php">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Info générales</h2>

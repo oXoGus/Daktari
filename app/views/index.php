@@ -12,7 +12,7 @@
 <body>
     <span class="title">Bonjour, <span style="color: #EC7218;"><?php echo $login ?></span></span>
     <div style="display: flex; align-items: center; height: 100vh;">
-        <div class="navBar" style="height: 150px;">
+        <div class="navBar">
             <a href="nouvelleConsult.php">nouvelle consultation</a>
             <a href="nouvelAnimal.php">nouvel animal</a>
             <a href="rechercherConsult.php">rechercher une consultation</a>

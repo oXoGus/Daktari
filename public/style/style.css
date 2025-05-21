@@ -55,9 +55,6 @@ body {
     }
  }
 
-.login_Container {
-    background-color: #FCECD4;
-}
 
 a {
     color: white;
@@ -80,6 +77,7 @@ a {
     justify-content: space-around;
     background-color: #FCECD4;
     margin-bottom: 20px;
+    height: 10%;
 }
 
 
@@ -91,7 +89,7 @@ a {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 115px;
+    font-size: calc(var(--font-size) + 60px);
     color: white;
 }
 
@@ -174,9 +172,90 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
+.loginContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #FCECD4;
+    border-radius: 20px;
+    width: 25%;
+    padding: 40px;
+}
+
+.loginContainer h1 {
+    width: 100%;
+    margin: 0px;
+    font-size: calc(var(--font-size) + 10px);
+    color: #0B2E49;
+    text-align: center;
+}
+
+.loginContainer p {
+    font-size: var(--font-size);
+    color: #0B2E49;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+.loginContainer input[type="text"], .loginContainer input[type="password"] {
+    border: #993E1E solid 3px;
+    padding-right: 0px;
+    width: calc(100% - 11px);
+    font-size: var(--font-size);
+    border-radius: 10px;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    padding-left: 5px;
+}
+
+.loginContainer form {
+    width: 100%;
+    align-items: start;
+}
+
+
+.loginContainer input[type="submit"] {
+    width: 100%;
+    margin-top: 25px;
+
+}
+
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    width: inherit;
+}
+
+.btnEye {
+    margin-left: -40px;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background-color: transparent;
+    background-image: url('../img/eyeClosed.svg');
+}
+
+
 .formContainer {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: calc(100% - 40px);
@@ -224,6 +303,7 @@ form span {
     width: 100%;
     align-items: baseline;
     gap: 15px;
+    margin-top: 15px;
     position: relative;
 }
 
@@ -540,6 +620,7 @@ tr:last-child th:first-child {
 
 .deleteBtn {
     color: #FCECD4;
+    border: none;
     text-decoration: none;
     background-color: #D21717;
     border-radius: 30px;
@@ -556,9 +637,10 @@ tr:last-child th:first-child {
 }
 
 .errContainer {
-    position: absolute;
-    top: 30%;
-    left: calc(37.5% - 20px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 25%;
     background-color: #D21717;
     border-radius: 30px;
@@ -599,8 +681,8 @@ tr:last-child th:first-child {
 
 .errContainer button {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: -35px;
+    right: -30px;
     width: 40px;
     height: 40px;
     background-image: url("../img/closeIcon.svg");
@@ -615,9 +697,10 @@ tr:last-child th:first-child {
 
 
 .msgContainer {
-    position: absolute;
-    top: 30%;
-    left: calc(37.5% - 20px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 25%;
     background-color: #0B2E49;
     border-radius: 30px;
@@ -649,8 +732,8 @@ tr:last-child th:first-child {
 
 .msgContainer button {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: -35px;
+    right: -30px;
     width: 40px;
     height: 40px;
     background-image: url("../img/closeIcon.svg");
@@ -706,4 +789,112 @@ td a {
     font-weight: 400;
     font-style: normal;
     font-size: calc(var(--font-size) - 5px);
+}
+
+.backLink {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+
+    text-decoration: none;
+    background-color: transparent;
+    color: #993E1E;
+}
+
+.backLink svg {
+    transform: rotate(90deg);
+}
+
+.doubleVerifContainer {    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    background-color: #31656C;
+    border-radius: 30px;
+
+    padding: 50px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 100000;   
+}
+
+.doubleVerifContainer div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.doubleVerifContainer h1 {
+    color: #FCECD4;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    font-size: var(--font-size);
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.doubleVerifContainer p {
+    color: #FCECD4;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    font-size: calc(var(--font-size) - 5px);
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 30px;
+
+}
+
+.doubleVerifContainer div div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.doubleVerifContainer div div a {
+    background-color: #D21717;
+    color: #FCECD4;
+    border-radius: 0px;
+    font-family: "DM Mono", monospace;
+    font-size: calc(var(--font-size) - 5px);
+    font-weight: 900;
+}
+
+.doubleVerifContainer div div button {
+    background-color: #0B2E49;
+    color: #FCECD4;
+    border: none;
+    text-decoration: none;
+    border-radius: 0px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #FCECD4;
+    font-size: calc(var(--font-size) - 5px);
+    font-family: "DM Mono", monospace;
+    font-weight: 900;
+}
+
+.doubleVerifContainer div .closeBtn {
+    position: absolute;
+    top: -35px;
+    right: -30px;
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/closeIcon.svg");
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }

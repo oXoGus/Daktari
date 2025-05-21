@@ -45,7 +45,7 @@
 
         <div class="formContainer">
             <h1 class="formTitle">Rechercher une consultation</h1>
-            <form type="GET" action="rechercherConsult.php#result">
+            <form method="GET" action="rechercherConsult.php#result">
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Rechercher par</h2>

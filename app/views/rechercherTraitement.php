@@ -44,7 +44,7 @@
                 <h1 class="formContainerTitle">
                     Rechercher un traitement
                 </h1>
-                <form type="GET" action="rechercherTraitement.php">
+                <form method="GET" action="rechercherTraitement.php">
                     <div class="sectionTitleContainer">
                         <div></div>
                         <h2 class="sectionTitle">Infos Générales</h2>

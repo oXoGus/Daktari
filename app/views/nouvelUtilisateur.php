@@ -44,7 +44,7 @@
         <h2 class="sectionTitle">Infos générales</h2>
         <div></div>
         </div>
-        <form type="get" action="user_ajouter.php">
+        <form method="get" action="user_ajouter.php">
             <div class="user">
                 <span>Nom d'utilisateur : <input type="text" name="username"></span><br>
                 <span>Mot de passe : <input type="text" name="mdp"></span>
