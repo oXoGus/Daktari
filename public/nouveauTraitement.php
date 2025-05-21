@@ -1,4 +1,5 @@
 <?php
     $originDir = __DIR__."/..";
-    include($originDir."/app/controllers/modifierTraitement.php");
+    echo $_GET['id'];
+    include($originDir."/app/controllers/nouveauTraitement.php");
     ?>
