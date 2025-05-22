@@ -31,7 +31,7 @@
                     <div class="menuDeroulant">
                         <a class="menuItem" href="rechercherAnimal.php">un animal</a>
                         <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
-                        <a class="menuItem" href="rechercherParticulier.php">un particulier</a>
+                        <a class="menuItem" href="rechercherParticuler.php">un particulier</a>
                         <a class="menuItem" href="rechercherConsult.php">une consultation</a>
                         <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
                         <a class="menuItem" href="rechercherManip.php">une manipulation</a>
@@ -45,7 +45,7 @@
                 <h1 class="formContainerTitle">
                     Traitement n°...
                 </h1>
-                <form method="GET" action="modifierAnimal">
+                <form method="GET" action="modifierTraitement.php">
                     <div class="sectionTitleContainer">
                         <div></div>
                         <h2 class="sectionTitle">
@@ -53,14 +53,20 @@
                         </h2>
                         <div></div>
                     </div>
-                    <span>Produit : <input type="text" name="produit"></span><br>
-                    <span>Dilution : <input type="text" name="dilution"></span><br>
-                    <span>Dose : <input type="text" name="dose"></span><br>
-                    <span>Durée du traitement : <input type="text" name="duree"></span><br>
-                    <span>Fréquence : <input type="text" name="frequence"></span><br>
-                    <span>Quand : <input type="text" name="quand"></span><br>
+                    <?php
+                    $tID = $_GET["id"];
+                    include($originDir."/app/models/GETTraitement.php");
+                    $infosMT = $resMT -> fetchAll(PDO::FETCH_OBJ);
+                    ?>
+                    <span><input type="hidden" name="id" value="<?= htmlspecialchars($tID ?? '');?>"></span>
+                    <span>Produit : <input type="text" name="produit" value="<?= htmlspecialchars($infosMT[0]->produit ?? ''); ?>"></span><br>
+                    <span>Dilution : <input type="text" name="dilution" value="<?= htmlspecialchars($infosMT[0]->dilution ?? ''); ?>"></span><br>
+                    <span>Dose : <input type="text" name="dose" value="<?= htmlspecialchars($infosMT[0]->dose ?? ''); ?>"></span><br>
+                    <span>Durée du traitement : <input type="text" name="duree" value="<?= htmlspecialchars($infosMT[0]->duree_traitement ?? ''); ?>"></span><br>
+                    <span>Fréquence : <input type="text" name="frequence" value="<?= htmlspecialchars($infosMT[0]->frequence ?? ''); ?>"></span><br>
+                    <span>Quand : <input type="text" name="quand" value="<?= htmlspecialchars($infosMT[0]->quand ?? ''); ?>"></span><br>
                     <div style="margin-bottom: 100px"></div>
-                    <a class="btnDelete" href="">Supprimer</a>
+                    <a class="btnDelete" href="DELETETraitement.php?id=<?= $_GET['id']?>">Supprimer</a>
                     <div class="btnSubResetContainer">
                         <input type="reset" value="Annuler les modifications">
                         <input type="submit" value="Enregistrer les modifications" id="save"></div>

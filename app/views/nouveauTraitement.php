@@ -29,7 +29,7 @@
                 <div class="menuDeroulant">
                     <a class="menuItem" href="rechercherAnimal.php">un animal</a>
                     <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
-                    <a class="menuItem" href="rechercherParticulier.php">un particulier</a>
+                    <a class="menuItem" href="rechercherParticuler.php">un particulier</a>
                     <a class="menuItem" href="rechercherConsult.php">une consultation</a>
                     <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
                     <a class="menuItem" href="rechercherManip.php">une manipulation</a>
@@ -45,15 +45,14 @@
         <h2 class="sectionTitle">Infos générales</h2>
         <div></div>
         </div>
-        <form method="get" action="traitement_ajouter.php">
+        <form type="get" action="nouveauTraitement.php">
         <div class="info">
-            <span>
-                Produit : <input type="text" name="produit"></span><br>
-            <span>Dilution : <input type="text" name="dilution"></span><br>
-            <span>Dose : <input type="text" name="dose"></span><br>
-            <span>Durée du traitement : <input type="text" name="duree"></span><br>
-            <span>Fréquence : <input type="text" name="frequence"></span><br>
-            <span>Quand : <input type="text" name="quand"></span><br>
+            <span>Produit : <input type="text" name="produit" required></span><br>
+            <span>Dilution : <input type="text" name="dilution" required></span><br>
+            <span>Dose : <input type="text" name="dose" required></span><br>
+            <span>Durée du traitement : <input type="text" name="duree_traitement" required></span><br>
+            <span>Fréquence : <input type="text" name="frequence" required></span><br>
+            <span>Quand : <input type="text" name="quand" required></span><br>
             <div class="btnSubResetContainer">
                 <input type="reset" value="Réinitialiser">
                 <input type="submit" value="Sauvegarder" id="save"></div>
