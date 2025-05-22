@@ -1,10 +1,26 @@
-<?php
-
-    //on essaye de se connecter à la base de données
-    include($originDir.'/config/connexion_db.php');
-
-    //On fait une requête de vérification pour savoir si le login et le mdp existe
-    //On récupère le hash
-    $res = $cnx->query("SELECT * FROM user_db WHERE username=".$cnx->quote($login)." and password_hash = md5(".$cnx->quote($password).")");
-    //on renvoit le resultat obtenu au controleur
-?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Daktari</title>
+</head>
+<body>
+    <div class="login_Container">
+        <h1>
+            (Re)Bonjour !
+        </h1>
+        <form action="connexion.php" method="get">
+            <p>Utilisateur</p>
+            <input type="text" name="login" required>
+            <p>Mot de passe</p>
+            <input type="text" name="mdp" required>
+            <input id="submitBtn" type="submit" value="Se connecter">
+        </form>
+    </div>
+</body>
+</html>

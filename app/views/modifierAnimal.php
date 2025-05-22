@@ -45,7 +45,7 @@
                 <h1 class="formContainerTitle">
                     Animal n°...
                 </h1>
-                <form method="GET" action="modifierAnimal">
+                <form method="GET" action="modifierAnimal.php">
                     <div class="sectionTitleContainer">
                         <div></div>
                         <h2 class="sectionTitle">
@@ -57,6 +57,15 @@
                     <span>
                         <select name="responsable">
                             <option value="">--Selectionner le Responsable--</option>
+                            <?php
+                                include($originDir."/app/models/GETResponsable.php");
+                                $rowsMA=$resResp->fetchAll(PDO::FETCH_OBJ);
+                                $selectedResponsable = $infosMA[0]->id_responsable ?? '';
+                                foreach ($rowsMA as $rowMA) {
+                                    $selected = ($selectedResponsable === $rowMA->id) ? ' selected' : '';
+                                    echo"<option value='".$rowMA->id."'".$selected." >".$rowMA->nom."</option>";
+                                }
+                            ?>
                         </select>
                         <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
                     </span>
@@ -67,38 +76,32 @@
                         </h2>
                         <div></div>
                     </div>
-                    <span>Nom : <input type="text" name="nom"></span>
+                    <span><input type="hidden" name="id" value="<?= htmlspecialchars($aID ?? '');?>"></span>
+                    <span>Nom : <input type="text" name="nom" value="<?= htmlspecialchars($infosMA[0]->nom ?? '');?>"></span>
                     <span>Espece :
-                        <select name="'espece">
-                            <option value="">--Selectionnez une espèce--</option>
-                        </select>
-                        <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
+                        <input type="text" name="espece" value="<?= htmlspecialchars($infosMA[0]->espece ?? '');?>">
                     </span>
                     <span>
                         Race :
-                        <select name="race">
-                            <option value="">--Selectionnez une race--</option>
-                            <option value="a">a</option>
-                        </select>
-                        <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
+                        <input type="text" name="race" value="<?= htmlspecialchars($infosMA[0]->race ?? '');?>">
                     </span>
                     <span>
                         Genre : 
-                        <input type="radio" value="F" name="genre">
+                        <input type="radio" value="F" name="genre"<?php echo htmlspecialchars($infosMA[0]->genre ?? '')=='F'?'checked':'';?>>
                         F
-                        <input type="radio" value="M" name="genre">
+                        <input type="radio" value="M" name="genre"<?php echo htmlspecialchars($infosMA[0]->genre ?? '')=='M'?'checked':'';?>>
                         M
                     </span>
-                    <span> Taille : <input type="text" name="taille">
+                    <span> Taille : <input type="text" name="taille" value="<?= htmlspecialchars($infosMA[0]->taille ?? '');?>">
                     </span>
                     <span>Castré : 
-                        <input type="radio" value="O" name="genre">
+                        <input type="radio" value="t" name="castre" <?php echo ($infosMA[0]->castre === true)?'checked':'';?>>
                         Oui
-                        <input type="radio" value="N" name="genre">
+                        <input type="radio" value="f" name="castre" <?php echo ($infosMA[0]->castre === false)?'checked':'';?>>
                         Non
                     </span>
                     <span>
-                        Poids : <input type="text" name="poids">
+                        Poids : <input type="text" name="poids" value="<?= htmlspecialchars($infosMA[0]->poids ?? '');?>">
                     </span>
                     <div class="sectionTitleContainer">
                         <div></div>
@@ -109,14 +112,20 @@
                     <span>
                         <select name="vaccin">
                             <option value="">--Selectionnez un vaccin--</option>
-                        </select>
+                            <?php
+                                foreach ($rowsVaccins as $rowVaccin) {
+                                    $selectedV = ($selectedVaccin == $rowVaccin->nom_vaccin) ? ' selected' : '';
+                                    echo"<option value='".$rowVaccin->nom_vaccin."'".$selectedV." >".$rowVaccin->nom_vaccin."</option>";
+                                }
+                            ?>
+                            </select>
                         <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>
                     </span>
                     <div style="margin-bottom: 100px"></div>
-                    <a class="btnDelete" href="">Supprimer</a>
+                    <a class="btnDelete" href="DELETEAnimal.php?id=<?= $_GET['id']?>">Supprimer</a>
                     <div class="btnSubResetContainer">
                         <input type="reset" value="Annuler les modifications">
-                        <input type="submit" value="Enregistrer les modifications" id="save">
+                        <input type="submit" value="Enregistrer les modifications" id="save" name="save">
                     </div>
                     <div style="margin-bottom: 100px"></div>
                 </form>
