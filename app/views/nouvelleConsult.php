@@ -71,7 +71,7 @@
                     <div></div>    
                     <h2 class="sectionTitle">Animal</h2>
                     <div></div>
-                    <a class="newBtnRight" href="nouvelAnnimal.php">ajouter un animal</a>
+                    <a class="newBtnRight" href="nouvelAnimal.php">ajouter un animal</a>
                 </div> 
                 <span>
                     <select name="animal" required>
@@ -145,8 +145,6 @@
                     <div></div>    
                     <h2 class="sectionTitle">Manipulations</h2>
                     <div></div>
-                    <a class="newBtnRight" href="nouvelleManip.php">créer une manipulation</a>
-                    <button type="submit"class="newBtnLeft">ajouter une manipulation pour cette consultation </button>
                 </div> 
                 <span>
                     <select name="manip">
@@ -164,8 +162,6 @@
                     <div></div>
                     <h2 class="sectionTitle">Traitement</h2>
                     <div></div>
-                    <a class="newBtnRight" href="nouveauTraitement.php">nouveau traitement</a>
-                    <button type="submit"class="newBtnLeft">ajouter un traitement pour cette consultation </button>
                 </div> 
                 <span>
                     <select name="traitement">

@@ -8,10 +8,13 @@
         $nouvelAnimal["id_responsable"]=$_GET["resp"];
     }
     if (isset($_GET['resp']) && !empty($_GET["nom"])) {
-        $nouvelAnimal["name"]=$_GET["nom"];
+        $nouvelAnimal["nom"]=$_GET["nom"];
     }
     if (isset($_GET['resp']) && !empty($_GET["espece"])) {
         $nouvelAnimal["espece"]=$_GET["espece"];
+    }
+    if (isset($_GET['castre']) && !empty($_GET["castre"])) {
+        $nouvelAnimal["castre"]=$_GET["castre"];
     }
     if (isset($_GET['resp']) && !empty($_GET["race"])) {
         $nouvelAnimal["race"]=$_GET["race"];
@@ -32,10 +35,10 @@
         
         //On ajoute le nouvel animal
         include($originDir."/app/models/nouvelAnimal.php");
-        //C'est bon jusq'ici
-        $idAnimal =$animalAdd->fetchALL(PDO::FETCH_OBJ);
-        $inputVaccin = "INSERT INTO vacciner VALUES (".$idAnimal[0]->id.", '".$nouvelAnimal['vaccin']."', '".$_GET['dateVaccin']."')";
-        include($originDir."/app/models/INSERTVaccin.php");
+
+        $idAnimal = $animalAdd->fetchALL(PDO::FETCH_OBJ);
+                
+        // on affiche ensuite la page 
         include($originDir."/app/views/nouvelAnimal.php");
     }
 ?>

@@ -31,6 +31,7 @@ $reqM -> execute();
 //dernierConsult AS (select DISTINCT ON (type_soin, type_localisation) type_soin, type_localisation, tarif_standard as tarifRecent from traiter join consultation on consultation_id = id where date_consult >= '2020-01-01' and raison_tarif_exceptionnel = 'Aucune' ORDER BY type_soin, type_localisation, date_consult DESC)
 //select pc.type_soin,pc.type_localisation, tarif2020, tarifRecent,(tarifRecent - tarif2020) / tarif2020 as augmentation from premsConsult pc join dernierConsult dc on pc.type_soin = dc.type_soin and pc.type_localisation = dc.type_localisation join consults c on pc.type_soin = c.type_soin and pc.type_localisation = c.type_localisation where c.nb_consult >= 2 and (dc.tarifRecent - pc.tarif2020) / pc.tarif2020 >= 0.5" ;
 
+
 $augm ="select * from tarif_augment";
 
   $reqA=$cnx-> prepare($augm);

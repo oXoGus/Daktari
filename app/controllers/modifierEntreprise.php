@@ -16,9 +16,17 @@
         $entrepriseInfo->execute(["id" => (int) $_GET['id']]);
         $entrepriseInfo = $entrepriseInfo->fetch(PDO::FETCH_OBJ);
 
+        // pas d'entreprise trouvé 
+        if ($entrepriseInfo == false){
+            header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherEntreprise.php"));   
+            exit;
+        }
+
          // on récupère la liste des type d'entreprises
         $res = $cnx->query("SELECT * FROM type_professionnel");
         
+        
+
         $typeList = array();
         while ($type = $res->fetch(PDO::FETCH_OBJ)) {
             $typeList[$type->code] = $type->libelle;

@@ -21,7 +21,9 @@
         
         // pas de consult trouvé
         if ($consultInfo == false){
-            $err = "aucune consultation avec cet id";
+            header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherConsult.php"));   
+            exit;
+            
         } else {
             // mise en forme de la date et de l'heure
             $dateConsult = DateTime::createFromFormat('Y-m-d H:i:s', $consultInfo->date_consult);

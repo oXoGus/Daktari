@@ -51,6 +51,7 @@
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
+                <div class="spanContainer">
                 <span>
                     Nom : <input type="text" maxlength="50" name="nom" <?php if (isset($_GET['nom'])) {echo "value=\"".$_GET['nom']."\"";}?>>
                 </span>
@@ -63,6 +64,8 @@
                 <span>
                     Mail : <input type="text" maxlength="50" name="mail" <?php if (isset($_GET['mail'])) {echo "value=\"".$_GET['mail']."\"";}?>>
                 </span>
+                </div>
+                
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Entreprise</h2>

@@ -72,16 +72,18 @@
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
-                <span>
-                    Code : <input type="text" maxlength="8" name="code" >
-                </span>
-                <span>
-                    Tarif en centime : <input type="number" min="0" name="tarif" >
-                </span>
-                <span>
-                    Durée de la manipulation en minutes :<input type="number" min="0" name="duree" >
-                </span>
-
+                <div class="spanContainer">
+                    <span>
+                        Code : <input type="text" maxlength="8" name="code" >
+                    </span>
+                    <span>
+                        Tarif en centime : <input type="number" min="0" name="tarif" >
+                    </span>
+                    <span>
+                        Durée de la manipulation en minutes :<input type="number" min="0" name="duree" >
+                    </span>
+                </div>
+                
                 <div class="btnSubResetContainer">
                     <input type="reset" value="Reinitialiser">
                     <input type="submit" value="Sauvegarder">

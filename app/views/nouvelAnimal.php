@@ -40,9 +40,31 @@
             </div>
             <a href="connexion.php">se déconnecter</a>
         </div>
+
+        <?php 
+            if (isset($err)){
+                echo "<div id=\"errContainer\" class=\"errContainer\">";
+                    echo "<div>";
+                        echo "<h1>erreur :</h1>";
+                        echo "<p>$err</p>";
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($err);
+            } if (isset($msg)){
+                echo "<div id=\"errContainer\" class=\"msgContainer\">";
+                    echo "<div>";
+                        echo "<p>$msg</p>";                        
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($msg);
+            }
+        ?>
+
         <div class="formContainer">
         <h1 class="formTitle">Ajouter un animal</h1>
-        <form type="GET" action="nouvelAnimal.php">
+        <form method="GET" action="nouvelAnimal.php">
             <div class="sectionTitleContainer">
                 <div></div>
                 <h2 class="sectionTitle">Responsable</h2>
@@ -102,8 +124,6 @@
                 <div></div>
                 <h2 class="sectionTitle">Vaccins</h2>
                 <div></div>
-                <a class="newBtnRight" href="nouveauTraitement.php">nouveau vaccin</a>
-                <button type="submit"class="newBtnLeft">ajouter un vaccin pour cet animal </button>
             </div>
             <span>
                 <select name="vaccin">
@@ -129,5 +149,6 @@
         </form>
         </div>
         </div>
+        <script src="script/fermerErr.js"></script>
     </body>
 </html>

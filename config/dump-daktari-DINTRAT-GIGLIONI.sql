@@ -195,3 +195,22 @@ INSERT INTO vacciner (animal_id, nom_vaccin, date_vaccin) VALUES
 
 INSERT INTO user_db (username, password_hash) VALUES
 ('daktari', md5('test'));
+
+CREATE VIEW tarif_augment AS WITH
+consults AS (select type_soin, type_localisation, COUNT(*) as nb_consult from traiter t join consultation c on consultation_id = id where date_consult >= '2020-01-01' and raison_tarif_exceptionnel = '' GROUP BY type_soin,type_localisation ),
+premsConsult AS (select DISTINCT ON (type_soin, type_localisation) type_soin, type_localisation, tarif_standard as tarif2020 from traiter join consultation on consultation_id = id where date_consult BETWEEN '2020-01-01' and '2020-12-31' and raison_tarif_exceptionnel = '' ORDER BY type_soin, type_localisation, date_consult ASC),
+dernierConsult AS (select DISTINCT ON (type_soin, type_localisation) type_soin, type_localisation, tarif_standard as tarifRecent from traiter join consultation on consultation_id = id where date_consult >= '2020-01-01' and raison_tarif_exceptionnel = '' ORDER BY type_soin, type_localisation, date_consult DESC)
+select pc.type_soin,pc.type_localisation, tarif2020, tarifRecent, ROUND((tarifRecent - tarif2020) / tarif2020, 0) as augmentation from premsConsult pc join dernierConsult dc on pc.type_soin = dc.type_soin and pc.type_localisation = dc.type_localisation join consults c on pc.type_soin = c.type_soin and pc.type_localisation = c.type_localisation where c.nb_consult >= 2 and (dc.tarifRecent - pc.tarif2020) / pc.tarif2020 >= 0.5;
+
+-- il faut resyncroniser la séquence puisqu'on a ajouter des serial a la main
+
+SELECT setval('particulier_id_seq', (SELECT COALESCE(MAX(id), 0) FROM particulier));
+SELECT setval('professionnel_id_seq', (SELECT COALESCE(MAX(id), 0) FROM professionnel));
+SELECT setval('responsable_id_seq', (SELECT COALESCE(MAX(id), 0) FROM responsable));
+SELECT setval('traitement_consult_consultation_id_seq', (SELECT COALESCE(MAX(consultation_id), 0) FROM traitement_consult));
+SELECT setval('traitement_consult_traitement_id_seq', (SELECT COALESCE(MAX(traitement_id), 0) FROM traitement_consult));
+SELECT setval('traitement_id_seq', (SELECT COALESCE(MAX(id), 0) FROM traitement));
+SELECT setval('traiter_animal_id_seq', (SELECT COALESCE(MAX(animal_id), 0) FROM traiter));
+SELECT setval('traiter_consultation_id_seq', (SELECT COALESCE(MAX(consultation_id), 0) FROM traiter));
+SELECT setval('user_db_id_seq', (SELECT COALESCE(MAX(id), 0) FROM user_db));
+SELECT setval('vacciner_animal_id_seq', (SELECT COALESCE(MAX(animal_id), 0) FROM vacciner))

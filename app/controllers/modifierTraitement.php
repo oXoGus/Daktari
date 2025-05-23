@@ -11,7 +11,7 @@
         if(empty($infosMT)){
             
             // retour a la recherche
-            header('location: rechercherTraitement.php');
+            header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherTraitement.php"));   
             exit;
         }
 

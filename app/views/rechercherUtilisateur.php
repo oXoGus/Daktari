@@ -41,7 +41,7 @@
             <a href="connexion.php">se déconnecter</a>
         </div>
             <div class="formContainer">
-                <h1 class="formContainerTitle">
+                <h1 class="formTitle">
                     Rechercher un utilisateur
                 </h1>
                 <form type="GET" action="rechercherUtilisateur.php#result">

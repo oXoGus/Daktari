@@ -16,6 +16,13 @@
         $particulierInfo->execute(["id" => (int) $_GET['id']]);
         $particulierInfo = $particulierInfo->fetch(PDO::FETCH_OBJ);
 
+        // pas d'entreprise trouvé 
+        if ($particulierInfo == false){
+            header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherParticulier.php"));   
+            exit;
+        }
+
+
 
     } else {
         header('location: rechercherParticulier.php');

@@ -5,12 +5,13 @@
         $cnx->beginTransaction();
 
         // on crée d'abord la consultation 
-        $res = $cnx->query("INSERT INTO consultation (anamnese, diagnostique, type_localisation, resume, duree, prev_consult) VALUES (".$cnx->quote($_GET['anamnese']).", ".$cnx->quote($_GET['diagnostique']).", ".$cnx->quote($_GET['type_localisation']).", ".$cnx->quote($_GET['resume']).", ".$cnx->quote($dureeConsult).", ".(empty($_GET['prev_consult']) ? "NULL" : $_GET['prev_consult']).") RETURNING id");
+        $res = $cnx->prepare("INSERT INTO consultation (anamnese, diagnostique, type_localisation, resume, duree, prev_consult) VALUES (:anamnese , :diagnostique , :type_localisation , :resume , :duree , :prev_consult) RETURNING id");
+        $res->execute(["anamnese" => $_GET['anamnese'], "diagnostique" => $_GET['diagnostique'], "type_localisation" => $_GET['type_localisation'], "resume" => $_GET['resume'], "duree" => $_GET['duree'], "prev_consult" => (!empty($_GET['prev_consult']) ? (int) $_GET['prev_consult'] : null)]);
         $id = $res->fetch(PDO::FETCH_OBJ)->id;
         $res->closeCursor();
 
         // ensuite la table traiter
-        $cnx->exec("INSERT INTO traiter (animal_id, consultation_id, type_soin, tarif_standard, date_consult, raison_tarif_exceptionnel) VALUES (".$_GET['animal'].", $id, ".$cnx->quote($_GET['type_consultation']).", ".$_GET['tarif'].", ".$cnx->quote($dateConsult).", ".$cnx->quote($_GET['raison_tarif_exceptionnel']).")");
+        $cnx->exec("INSERT INTO traiter (animal_id, consultation_id, type_soin, tarif_standard, date_consult, raison_tarif_exceptionnel) VALUES (".$_GET['animal'].", $id, ".$cnx->quote($_GET['type_consultation']).", ".$_GET['tarif'].", ".$cnx->quote($dateConsult).", ".(empty($_GET['raison_tarif_exceptionnel']) ? $cnx->quote($_GET['raison_tarif_exceptionnel']) : "''").")");
         
         // la manip si elle a eu lieu
         if (!empty($_GET['manip'])){

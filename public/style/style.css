@@ -589,6 +589,7 @@ input[type="submit"] {
 
 
 .responseContainer table {
+    background-color: #31656C;
     border: solid #31656C 8px;
     border-radius: 30px;
     border-collapse: separate;
@@ -636,6 +637,7 @@ th {
 
 td {
     text-align: center;
+    background-color: #FCECD4;
     font-family: "DM Mono", monospace;
     font-weight: 500;
     font-style: normal;
@@ -944,4 +946,10 @@ td a {
     border: none;
     cursor: pointer;
     padding: 0;
+}
+
+.statBtn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }

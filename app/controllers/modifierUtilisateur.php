@@ -10,6 +10,12 @@
         $resMU = $cnx ->query('SELECT username FROM user_db where id='.$_GET['id']);
 
         $usernameMU = $resMU->fetchAll(PDO::FETCH_OBJ);
+
+        // pas d'utilisateur avec cette id là
+        if (empty($usernameMU)){
+            header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherUtilisateur.php"));   
+        }
+
         include($originDir."/app/views/modifierUtilisateur.php");
     } else {
         header('location: rechercherUtilisateur.php');

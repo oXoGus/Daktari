@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rechercher un utilisateur</title>
+        <title>Statistiques</title>
         <link rel="stylesheet" href="style/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,71 +40,72 @@
             </div>
             <a href="connexion.php">se déconnecter</a>
         </div>
-            <div class="formContainer">
-                <h1 class="formContainerTitle">
+            <div class="responseContainer">
+                <h1 class="formTitle">
                     Statistiques
                 </h1>
-                    <div class="sectionTitleContainer">
-                        <div></div>
-                        <h2 class="sectionTitle">Meilleurs clients</h2>
-                        <div></div>
-                    </div>
-                    <table>
-                    <thead>
-                        <th scope="col">Nom du Client</th>
-                        <th scope="col">Montant</th>
-                    </thead>
-                    <tbody>
-                    <?php
-                        $lignesB=$reqB->fetchAll(PDO::FETCH_OBJ);
-                        foreach ($lignesB as $ligneB) {
-                            echo"<tr><th>".$ligneB->nom ."</th><td>".$ligneB->total."</td></tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-                <div class="sectionTitleContainer">
-                    <div></div>
-                        <h2 class='sectionTitle'> Manipulations du mois dernier </h2>
-                    <div></div>
-                </div>
-                <table>
-                    <thead>
-                        <th scope="col">Client</th>
-                        <th scope="col">Anima</th>
-                        <th scope="col">Manipulation</th>
-                    </thead>
-                    <tbody>
-                    <?php
-                        $lignesM=$reqM->fetchAll(PDO::FETCH_OBJ);
-                        foreach ($lignesM as $ligneM) {
-                            echo"<tr><th>".$ligneM->client ."</th><td>".$ligneM->animal."</td><td>".$ligneM->code."</td></tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-                <div class="sectionTitleContainer">
-                    <div></div>
-                        <h2 class='sectionTitle'> Types de consultations ayant augmenté de plus de 50% depuis 2020 </h2>
-                    <div></div>
-                </div>
-                <table>
-                    <thead>
-                        <th scope="col">type de soins</th>
-                        <th scope="col">type de localisation</th>
-                        <th scope="col">premier tarif après 2020</th>
-                        <th scope="col">dernier tarif</th>
-                        <th scope="col">augmentation</th>
-                    </thead>
-                    <tbody>
-                    <?php
-                        $lignesA=$reqA->fetchAll(PDO::FETCH_OBJ);
-                        foreach ($lignesA as $ligneA) {
-                            echo"<tr><th>".$ligneA->type_soin ."</th><td>".$ligneA->type_localisation."</td><td>".$ligneA->tarif2020."</td><td>".$ligneA->tarifrecent."</td><td>".$ligneA->augmentation."</td></tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                    <div class="tableContainer">                        <div class="sectionTitleContainer">
+                            <div></div>
+                            <h2 class="sectionTitle">Meilleurs clients</h2>
+                            <div></div>
+                        </div>
+                        <table>
+                            <thead>
+                                <th scope="col">Nom du Client</th>
+                                <th scope="col">Montant</th>
+                            </thead>
+                            <tbody>
+                            <?php
+                                $lignesB=$reqB->fetchAll(PDO::FETCH_OBJ);
+                                foreach ($lignesB as $ligneB) {
+                                    echo"<tr><td>".$ligneB->nom ."</td><td>".$ligneB->total."€</td></tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <div class="sectionTitleContainer">
+                            <div></div>
+                                <h2 class='sectionTitle'> Manipulations du mois dernier </h2>
+                            <div></div>
+                        </div>
+                        <table>
+                            <thead>
+                                <th scope="col">Client</th>
+                                <th scope="col">Anima</th>
+                                <th scope="col">Manipulation</th>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $lignesM=$reqM->fetchAll(PDO::FETCH_OBJ);
+                                    foreach ($lignesM as $ligneM) {
+                                        echo"<tr><td>".$ligneM->client ."</td><td>".$ligneM->animal."</td><td>".$ligneM->code."</td></tr>";
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                        <div class="sectionTitleContainer">
+                            <div></div>
+                                <h2 style="font-size: calc(var(--font-size) + 10px);" class='sectionTitle'> Types de consultations ayant augmenté de plus de 50% depuis 2020 </h2>
+                            <div></div>
+                        </div>
+                        <table>
+                            <thead>
+                                <th scope="col">type de soins</th>
+                                <th scope="col">type de localisation</th>
+                                <th scope="col">premier tarif après 2020</th>
+                                <th scope="col">dernier tarif</th>
+                                <th scope="col">augmentation</th>
+                            </thead>
+                            <tbody>
+                            <?php
+                                $lignesA=$reqA->fetchAll(PDO::FETCH_OBJ);
+                                foreach ($lignesA as $ligneA) {
+                                    echo"<tr><td>".$ligneA->type_soin ."</td><td>".$ligneA->type_localisation."</td><td>".$ligneA->tarif2020."</td><td>".$ligneA->tarifrecent."</td><td>".$ligneA->augmentation."</td></tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                </div> 
             </div>
         </div>
     </body>

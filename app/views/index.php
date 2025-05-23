@@ -11,6 +11,7 @@
 </head>
 <body>
     <span class="title">Bonjour, <span style="color: #EC7218;"><?php echo $login ?></span></span>
+    <a class="statBtn" href="stats.php">statistiques</a>
     <div style="display: flex; align-items: center; height: 100vh;">
         <div class="navBar">
             <a href="nouvelleConsult.php">nouvelle consultation</a>

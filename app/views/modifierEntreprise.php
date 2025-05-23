@@ -76,19 +76,22 @@
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
-                <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-                <span>
-                    Nom : <input type="text" maxlength="50" name="nom" <?php if(!isset($err)) {echo "value=\"".$entrepriseInfo->nom."\"";}?>>
-                </span>
-                <span>
-                    Adresse : <input type="text" maxlength="50" name="adresse" <?php if(!isset($err)) {echo "value=\"".$entrepriseInfo->adresse."\"";}?>>
-                </span>
-                <span>
-                    Téléphone : <input type="text" maxlength="15" name="telephone" <?php if(!isset($err)) {echo "value=\"".$entrepriseInfo->telephone."\"";}?>>
-                </span>
-                <span>
-                    Mail : <input type="text" maxlength="50" name="mail" <?php if(!isset($err)) {echo "value=\"".$entrepriseInfo->mail."\"";}?>>
-                </span>
+                <div class="spanContainer">
+                    <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+                    <span>
+                        Nom : <input type="text" maxlength="50" name="nom" <?php if(!isset($err)) {echo "value=\"".$entrepriseInfo->nom."\"";}?>>
+                    </span>
+                    <span>
+                        Adresse : <input type="text" maxlength="50" name="adresse" <?php if(!isset($err)) {echo "value=\"".$entrepriseInfo->adresse."\"";}?>>
+                    </span>
+                    <span>
+                        Téléphone : <input type="text" maxlength="15" name="telephone" <?php if(!isset($err)) {echo "value=\"".$entrepriseInfo->telephone."\"";}?>>
+                    </span>
+                    <span>
+                        Mail : <input type="text" maxlength="50" name="mail" <?php if(!isset($err)) {echo "value=\"".$entrepriseInfo->mail."\"";}?>>
+                    </span>
+                </div>
+                
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Entreprise</h2>

@@ -71,18 +71,21 @@
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
-                <span>
-                    Nom : <input type="text" name="nom" required>
-                </span>
-                <span>
-                    Adresse : <input type="text" name="adresse" required>
-                </span>
-                <span>
-                    Téléphone : <input type="text" name="telephone" required>
-                </span>
-                <span>
-                    Mail : <input type="text" name="mail" required>
-                </span>
+                <div class="spanContainer">
+                    <span>
+                        Nom : <input type="text" name="nom" required>
+                    </span>
+                    <span>
+                        Adresse : <input type="text" name="adresse" required>
+                    </span>
+                    <span>
+                        Téléphone : <input type="text" name="telephone" required>
+                    </span>
+                    <span>
+                        Mail : <input type="text" name="mail" required>
+                    </span>
+                </div>
+                
                 <div class="sectionTitleContainer">
                     <div></div>    
                     <h2 class="sectionTitle">Entreprise</h2>
