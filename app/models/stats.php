@@ -2,7 +2,7 @@
 //Les trois vues des requêtes
 //Vue numéro 1 : Les meilleurs clients 
 //On prend la somme des dépenses de chaque client et on affiche dans le sens décroissant
-$bestClient ="SELECT responsable.nom,SUM(COALESCE(manipulation.tarif, 0)/100) + SUM(traiter.tarif_standard) as total
+$bestClient ="SELECT responsable.nom,ROUND(SUM(COALESCE(manipulation.tarif, 0)/100) + SUM(traiter.tarif_standard), 2) as total
 FROM responsable JOIN animaux ON responsable.id = animaux.id
 JOIN traiter ON animaux.id = traiter.animal_id
 JOIN consultation ON traiter.consultation_id = consultation.id
