@@ -17,7 +17,7 @@
                 <div class="menuDeroulant">
                     <a class="menuItem" href="nouvelAnimal.php">un animal</a>
                     <a class="menuItem" href="nouvelleEntreprise.php">une entreprise</a>
-                    <a class="menuItem" href="nouveauParticuler.php">un particulier</a>
+                    <a class="menuItem" href="nouveauParticulier.php">un particulier</a>
                     <a class="menuItem" href="nouvelleConsult.php">une consultation</a>
                     <a class="menuItem" href="nouveauTraitement.php">un traitement</a>
                     <a class="menuItem" href="nouvelleManip.php">une manipulation</a>
@@ -29,7 +29,7 @@
                 <div class="menuDeroulant">
                     <a class="menuItem" href="rechercherAnimal.php">un animal</a>
                     <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
-                    <a class="menuItem" href="rechercherParticuler.php">un particulier</a>
+                    <a class="menuItem" href="rechercherParticulier.php">un particulier</a>
                     <a class="menuItem" href="rechercherConsult.php">une consultation</a>
                     <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
                     <a class="menuItem" href="rechercherManip.php">une manipulation</a>
