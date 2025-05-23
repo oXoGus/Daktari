@@ -1,6 +1,9 @@
 <?php 
     include($originDir."/config/middleware.php"); // page accessible uniquement aux utilisateur connecté
 
+    // on récupère le l'url pour pouvoir revenir a cette recherche avec ces param
+    $_SESSION['rechercheParam'] = $_SERVER['PHP_SELF'].(isset($_SERVER['QUERY_STRING']) ? "?".$_SERVER['QUERY_STRING'] : "").$_SERVER['QUERY_STRING']."#result";
+
     $rechercherTraitement=array();
     $parametre = [];
     if (!empty($_GET["produit"])) {
@@ -37,7 +40,7 @@
         $sepRT="";
         foreach( $rechercherTraitement as $k => $v ) {
             $reqRT .=$sepRT.$v."";
-            $sepRT="AND ";
+            $sepRT=" AND ";
         }
         include($originDir."/app/models/rechercherTraitement.php");
         //Ajouter à la page le contenu de la ligne du tableau

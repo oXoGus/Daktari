@@ -3,19 +3,26 @@
 
     //On récupère les infos pour pouvoir les afficher
     $aID = $_GET["id"];
-    echo $_GET['id'];
     include($originDir."/app/models/GETAnimal.php");
     $infosMA = $resMA -> fetchAll(PDO::FETCH_OBJ);
-    echo'erreur';
-    
+
     //On affiche tous les vaccins
     include($originDir."/app/models/GETVaccins.php");
     $rowsVaccins=$resVaccins->fetchAll(PDO::FETCH_OBJ);
+
     //On va chercher le vaccin que id_animal a fait 
     include($originDir."/app/models/GETVaccinAnimal.php");
     $rowsAnimalVaccin = $resVaccinAnimal->fetchAll(PDO::FETCH_OBJ);
+    
     //ON récupère les vaccins effectuer par l'animal
-    $selectedVaccin = $rowsAnimalVaccin[0]->nom_vaccin;
+    if (!empty($rowsAnimalVaccin)){
+        $selectedVaccin = $rowsAnimalVaccin[0]->nom_vaccin;
+    }
+
+    // on recherche si le responsable de l'animal est un particulier ou un professionnel
+    $idResp = $infosMA[0]->id_responsable;
+    $particulierLst = $cnx->query("SELECT * FROM particulier WHERE id = $idResp");
+    $isParticulier = $particulierLst->rowCount() == 1;
 
     //Recherche des modifications effectuées 
     $modifA=array();
@@ -57,6 +64,10 @@
     }
     if (!empty($modifA)) {
         include($originDir."/app/models/UPDATEAnimal.php");
+        
+        // on refait la requete pour afficher les donnés modifier
+        include($originDir."/app/models/GETAnimal.php");
+        $infosMA = $resMA -> fetchAll(PDO::FETCH_OBJ);
     }
     include($originDir."/app/views/modifierAnimal.php");
     ?>

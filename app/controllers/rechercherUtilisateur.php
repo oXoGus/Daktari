@@ -1,19 +1,20 @@
 <?php
     include($originDir."/config/middleware.php"); // page accessible uniquement aux utilisateur connecté
+    
+    // on récupère le l'url pour pouvoir revenir a cette recherche avec ces param
+    $_SESSION['rechercheParam'] = $_SERVER['PHP_SELF'].(isset($_SERVER['QUERY_STRING']) ? "?".$_SERVER['QUERY_STRING'] : "").$_SERVER['QUERY_STRING']."#result";
+            
     $rechercherUtilisateur=array();
     $param = [];
-    if (!empty($_GET["username"])) {
-        $rechercherUtilisateur["username"]="username LIKE :username";
+    if (isset($_GET['username']) && !empty($_GET["username"])) {
         $param[':username']=$_GET['username'].'%';
-        $reqRU = "WHERE ";
-        $sepRU="";
-        foreach( $rechercherUtilisateur as $i => $j ) {
-            $reqRU .=$sepRU.$j."";
-            $sepRU="AND ";
-        }
+        $reqRU = "WHERE username LIKE :username";
+
         include($originDir."/app/models/rechercherUtilisateur.php");
-        //Ajouter à la page le contenu de la ligne du tableau
-        //utiliser echo ? => pour ecrire dans la page rechercher animal 
+    } else {
+        $resRU = $cnx->query("SELECT * FROM user_db");
     }
+    
+
     include($originDir."/app/views/rechercherUtilisateur.php");
 ?>

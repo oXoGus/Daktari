@@ -10,36 +10,36 @@
     </head>
     <body>
         <div class="mainContainer">
-            <div class="navBar" style="margin-top: 10px">
-                <a href="nouvelleConsult.php">nouvelle consultation</a>
-                <a href="nouvelAnimal.php">nouvel animal</a>
-                <a href="rechercherConsult.php">rechercher une consultation</a>
-                <div class="menuDeroulantContainer">
-                    <span class="menuDeroulantBtn">ajouter...<svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg></span>
-                    <div class="menuDeroulant">
-                        <a class="menuItem" href="nouvelAnimal.php">un animal</a>
-                        <a class="menuItem" href="nouvelleEntreprise.php">une entreprise</a>
-                        <a class="menuItem" href="nouveauParticuler.php">un particulier</a>
-                        <a class="menuItem" href="nouvelleConsult.php">une consultation</a>
-                        <a class="menuItem" href="nouveauTraitement.php">un traitement</a>
-                        <a class="menuItem" href="nouvelleManip.php">une manipulation</a>
-                        <a class="menuItem" href="nouvelUtilisateur.php">un utilisateur</a>
-                    </div>
+        <div class="navBar" style="margin-top: 10px">
+            <a href="nouvelleConsult.php">nouvelle consultation</a>
+            <a href="nouvelAnimal.php">nouvel animal</a>
+            <a href="rechercherConsult.php">rechercher une consultation</a>
+            <div class="menuDeroulantContainer">
+                <span class="menuDeroulantBtn">ajouter...<svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg></span>
+                <div class="menuDeroulant">
+                    <a class="menuItem" href="nouvelAnimal.php">un animal</a>
+                    <a class="menuItem" href="nouvelleEntreprise.php">une entreprise</a>
+                    <a class="menuItem" href="nouveauParticulier.php">un particulier</a>
+                    <a class="menuItem" href="nouvelleConsult.php">une consultation</a>
+                    <a class="menuItem" href="nouveauTraitement.php">un traitement</a>
+                    <a class="menuItem" href="nouvelleManip.php">une manipulation</a>
+                    <a class="menuItem" href="nouvelUtilisateur.php">un utilisateur</a>
                 </div>
-                <div class="menuDeroulantContainer">
-                    <span class="menuDeroulantBtn">rechercher...<svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg></span>
-                    <div class="menuDeroulant">
-                        <a class="menuItem" href="rechercherAnimal.php">un animal</a>
-                        <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
-                        <a class="menuItem" href="rechercherParticuler.php">un particulier</a>
-                        <a class="menuItem" href="rechercherConsult.php">une consultation</a>
-                        <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
-                        <a class="menuItem" href="rechercherManip.php">une manipulation</a>
-                        <a class="menuItem" href="rechercherUtilisateur.php">un utilisateur</a>
-                    </div>
-                </div>
-                <a href="connexion.php">se déconnecter</a>
             </div>
+            <div class="menuDeroulantContainer">
+                <span class="menuDeroulantBtn">rechercher...<svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg></span>
+                <div class="menuDeroulant">
+                    <a class="menuItem" href="rechercherAnimal.php">un animal</a>
+                    <a class="menuItem" href="rechercherEntreprise.php">une entreprise</a>
+                    <a class="menuItem" href="rechercherParticulier.php">un particulier</a>
+                    <a class="menuItem" href="rechercherConsult.php">une consultation</a>
+                    <a class="menuItem" href="rechercherTraitement.php">un traitement</a>
+                    <a class="menuItem" href="rechercherManip.php">une manipulation</a>
+                    <a class="menuItem" href="rechercherUtilisateur.php">un utilisateur</a>
+                </div>
+            </div>
+            <a href="connexion.php">se déconnecter</a>
+        </div>
 
             <?php 
                 if (isset($err)){
@@ -76,7 +76,6 @@
                             <?php
                                 include($originDir."/app/models/GETResponsable.php");
                                 $rows=$resResp->fetchAll(PDO::FETCH_OBJ);
-                                var_dump($rows);
                                 foreach ($rows as $row) {
                                     echo"<option value='".$row->id."'>".$row->nom."</option>";
                                 }
@@ -89,30 +88,32 @@
                         <h2 class="sectionTitle">Descriptif</h2>
                         <div></div>
                     </div>
-                    <span>Nom : <input type="text" maxlength="50" name="nom">
-                    </span>
-                    <span>Espece : <input type="text" maxlength="50" name="espece">
-                    </span>
-                    <span>
-                        Race : <input type="text" maxlength="50" name="race">
-                    </span>
+                    <div class="spanContainer">
+                        <span>Nom : <input type="text" maxlength="50" name="nom" <?php if (isset($_GET['nom'])) { echo "value=\"".$_GET['nom']."\"";} ?>>
+                        </span>
+                        <span>Espece : <input type="text" maxlength="50" name="espece" <?php if (isset($_GET['espece'])) { echo "value=\"".$_GET['espece']."\"";} ?>>
+                        </span>
+                        <span>
+                            Race : <input type="text" maxlength="50" name="race" <?php if (isset($_GET['race'])) { echo "value=\"".$_GET['race']."\"";} ?>>
+                        </span>
+                    </div>
                     <span>
                         Genre : 
-                        <input type="radio" value="F" name="genre">
+                        <input type="radio" value="F" name="genre" <?php if (isset($_GET['genre'])) {echo $_GET['genre'] == "F" ? "checked" : "";}?>>
                         F
-                        <input type="radio" value="M" name="genre">
+                        <input type="radio" value="M" name="genre" <?php if (isset($_GET['genre'])) {echo $_GET['genre'] == "M" ? "checked" : "";}?>>
                         M
                     </span>
-                    <span> Taille : <input type="number" step="any" name="taille">
+                    <span> Taille : <input type="number" step="0.1" name="taille" <?php if (isset($_GET['taille'])) { echo "value=\"".$_GET['taille']."\"";} ?>>
                     </span>
                     <span>Castré : 
-                        <input type="radio" value="t" name="castre">
+                        <input type="radio" value="t" name="castre" <?php if (isset($_GET['castre'])) {echo $_GET['castre'] == "t" ? "checked" : "";}?>>
                         Oui
-                        <input type="radio" value="f" name="castre">
+                        <input type="radio" value="f" name="castre" <?php if (isset($_GET['castre'])) {echo $_GET['castre'] == "f" ? "checked" : "";}?>>
                         Non
                     </span>
                     <span>
-                        Poids : <input type="number" step="any" min="0" name="poids">
+                        Poids : <input type="number" step="0.1" min="0" name="poids" <?php if (isset($_GET['taille'])) { echo "value=\"".$_GET['taille']."\"";} ?>>
                     </span>
                     <div class="sectionTitleContainer">
                         <div></div>
@@ -122,6 +123,12 @@
                     <span>
                         <select name="vaccins">
                             <option value="">Selectionnez un vaccin...</option>
+                            <?php
+                                foreach ($rowsVaccins as $rowVaccin) {
+                                    $selectedV = (isset($_GET['vaccins']) && $_GET['vaccins'] == $rowVaccin->nom_vaccin) ? ' selected' : '';
+                                    echo"<option value='".$rowVaccin->nom_vaccin."'".$selectedV." >".$rowVaccin->nom_vaccin."</option>";
+                                }
+                            ?>
                         </select>
                         <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg></span>
                     </span>
@@ -129,6 +136,7 @@
                         <input type="reset" value="Réinitialiser">
                         <input type="submit" value="Sauvegarder">
                     </div>
+                    <div style="margin-bottom: 50px;"></div>
                 </form>
             </div>
                                 
@@ -181,5 +189,6 @@
                 </div>
             </div>
         </div>
+        <script src="script/fermerErr.js"></script>
     </body>
 </html>

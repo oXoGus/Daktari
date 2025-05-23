@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="mainContainer">
-        <div class="navBar" style="height:70px; margin-top: 10px">
+        <div class="navBar" style="margin-top: 10px">
             <a href="nouvelleConsult.php">nouvelle consultation</a>
             <a href="nouvelAnimal.php">nouvel animal</a>
             <a href="rechercherConsult.php">rechercher une consultation</a>
@@ -65,10 +65,10 @@
         ?>
 
         <div class="formContainer">
-            <a class="backLink" href="rechercherEntreprise.php<?php if (isset($_SESSION['rechercheParam'])) { echo "?".$_SESSION['rechercheParam'];} ?>#result" >
-                <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>    
+            <a class="backLink" href="<?php if (isset($_SESSION['rechercheParam'])) { echo $_SESSION['rechercheParam'];} ?>">
+            <svg class="flecheBas" style="margin-left: 5px;" width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.73205 12C8.96225 13.3333 7.03775 13.3333 6.26795 12L1.0718 3C0.301996 1.66667 1.26425 0 2.80385 0L13.1962 0C14.7358 0 15.698 1.66667 14.9282 3L9.73205 12Z" /></svg>    
                 Revenir à la recherche
-            </a>
+            </a>    
             <h1 class="formTitle">entreprise n°<?php echo $_GET['id']?></h1>
             <form method="GET" action="modifierEntreprise.php">
                 <div class="sectionTitleContainer">

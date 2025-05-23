@@ -8,13 +8,10 @@
         try {
             $delete = $cnx->prepare("DELETE FROM consultation WHERE id = :id");
             $delete->execute(["id" => (int) $_GET['id']]);
-        } catch (PDOException $e){} // on redirige même en cas d'erreur
+        } catch (PDOException $e){} // on redirige même en cas d'erreur    
+    } 
 
-        // on redirige l'utilisateur sur la page de recherche 
-        header('location: rechercherConsult.php'.(isset($_SESSION['rechercheParam']) ? "?".$_SESSION['rechercheParam'] : "")."#result");
-        
-    } else {
-        header('location: rechercherConsult.php');
-        exit;
-    }
+    // on redirige l'utilisateur sur la page de recherche 
+    header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherConsult.php"));   
+
 ?>

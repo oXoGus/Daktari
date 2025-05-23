@@ -1,20 +1,16 @@
 <?php 
     include($originDir."/config/middleware.php");
 
+    // on récupère le l'url pour pouvoir revenir a cette recherche avec ces param
+    $_SESSION['rechercheParam'] = $_SERVER['PHP_SELF'].(isset($_SERVER['QUERY_STRING']) ? "?".$_SERVER['QUERY_STRING'] : "").$_SERVER['QUERY_STRING']."#result";
     
 
     // si l'utilisateur a bien envoyé le form
     if (isset($_GET['animal_id']) && isset($_GET['date_consult']) && isset($_GET['anamnese']) && isset($_GET['diagnostique']) && isset($_GET['type_localisation']) && isset($_GET['tarif_standard']) && isset($_GET['raison_tarif_exceptionnel']) && isset($_GET['prev_consult']) && isset($_GET['code']) && isset($_GET['traitement_id']) && isset($_GET['type_soin'])) {
         
-
-        // on récupère le get sous forme d'url pour pouvoir revenir a cette recherche avec ces param
-        $_SESSION['rechercheParam'] = $_SERVER['QUERY_STRING'];
-        
         include($originDir."/app/models/rechercherConsult.php");
     } else {
 
-        // on reset la search
-        unset($_SESSION['rechercheParam']); 
 
         // on affiche la liste de toutes les consultations du plus récent au plus ancien 
         // par défaut
@@ -32,6 +28,8 @@
         $consult->date_consult = $dateConsult->format('d/m/Y'); // on change le format
         $consultTrouveLst[$consult->consultation_id] = $consult;
     }
+
+
 
     // récupération des données pour les option dans les select 
     $res = $cnx->query("SELECT id, nom, race FROM animaux");

@@ -909,6 +909,7 @@ td a {
     background-color: #D21717;
     color: #FCECD4;
     border-radius: 0px;
+    padding-bottom: 5px;
     font-family: "DM Mono", monospace;
     font-size: calc(var(--font-size) - 5px);
     font-weight: 900;

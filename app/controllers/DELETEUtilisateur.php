@@ -1,9 +1,10 @@
 <?php
     include($originDir."/config/middleware.php"); // page accessible uniquement aux utilisateur connecté
 
-    include ($originDir."/app/models/DELETEUtilisateur.php");
-    // si l'utilisateur est connecté 
-    // on inclue directment la vue puiqu'il n'y à aucune info à récup
-    include($originDir."/app/views/rechercherUtilisateur.php");
-    
+    if (isset($_GET['id']) && !empty($_GET['id'])){
+        $delete = $cnx->prepare("DELETE FROM user_db WHERE id = :id");
+        $delete->execute(["id" => $_GET['id']]);
+    } 
+    // on redirige l'utilisateur vers la page de recherche
+    header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherUtilisateur.php"));   
 ?>

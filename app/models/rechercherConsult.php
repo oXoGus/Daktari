@@ -35,10 +35,9 @@
                     
                 }
             }
-            $reqete = "SELECT consultation_id, animaux.nom, animaux.race, consultation.anamnese, date_consult, consultation.type_localisation, tarif_standard, type_soin FROM traiter JOIN animaux ON traiter.animal_id = animaux.id JOIN consultation ON traiter.consultation_id = consultation.id NATURAL JOIN manip_consult NATURAL JOIN traitement_consult WHERE " . implode(' AND ', $whereClauseLst). " GROUP BY consultation_id, animaux.nom, animaux.race, consultation.anamnese, date_consult, consultation.type_localisation, tarif_standard, type_soin ORDER BY date_consult DESC";
-
+            $requete = "SELECT consultation_id, animaux.nom, animaux.race, consultation.anamnese, date_consult, consultation.type_localisation, tarif_standard, type_soin FROM traiter JOIN animaux ON traiter.animal_id = animaux.id JOIN consultation ON traiter.consultation_id = consultation.id NATURAL LEFT JOIN manip_consult NATURAL LEFT JOIN traitement_consult WHERE " . implode(' AND ', $whereClauseLst). " GROUP BY consultation_id, animaux.nom, animaux.race, consultation.anamnese, date_consult, consultation.type_localisation, tarif_standard, type_soin ORDER BY date_consult DESC";
             // on utilise le implode pour faire la clause where dynamiquement
-            $consultTrouve = $cnx->prepare($reqete);
+            $consultTrouve = $cnx->prepare($requete);
             $consultTrouve->execute($params);
         }
     } catch (PDOException $e){

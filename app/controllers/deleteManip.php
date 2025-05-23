@@ -10,11 +10,9 @@
             $delete->execute(["code" => $_GET['code']]);
         } catch (PDOException $e){} // on redirige même en cas d'erreur
 
-        // on redirige l'utilisateur sur la page de recherche 
-        header('location: rechercherManip.php'.(isset($_SESSION['rechercheParam']) ? "?".$_SESSION['rechercheParam'] : "")."#result");
-        
-    } else {
-        header('location: rechercherManip.php');
-        exit;
-    }
+    } 
+
+    // on redirige l'utilisateur sur la page de recherche 
+    header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherManip.php"));   
+
 ?>

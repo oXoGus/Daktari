@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="mainContainer">
-        <div class="navBar" style="height:70px; margin-top: 10px">
+        <div class="navBar" style="margin-top: 10px">
             <a href="nouvelleConsult.php">nouvelle consultation</a>
             <a href="nouvelAnimal.php">nouvel animal</a>
             <a href="rechercherConsult.php">rechercher une consultation</a>

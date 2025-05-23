@@ -4,7 +4,7 @@
         
         // on commence par modifier la table consultation
         $update = $cnx->prepare("UPDATE consultation SET anamnese = :anamnese , diagnostique = :diagnostique , type_localisation = :type_localisation , resume = :resume , duree = :duree , prev_consult = :prev_consult WHERE id = :id");
-        $update->execute(["anamnese" => $_GET['anamnese'], "diagnostique" => $_GET['diagnostique'], "type_localisation" => $_GET['type_localisation'], "resume" => $_GET['resume'], "duree" => $_GET['duree'], "prev_consult" => (int) $_GET['prev_consult'], "id" => $_GET['id'],]);
+        $update->execute(["anamnese" => $_GET['anamnese'], "diagnostique" => $_GET['diagnostique'], "type_localisation" => $_GET['type_localisation'], "resume" => $_GET['resume'], "duree" => $_GET['duree'], "prev_consult" => (empty($_GET['prev_consult']) ? null : (int) $_GET['prev_consult']), "id" => $_GET['id'],]);
         
         // ensuite la table traiter
         $update = $cnx->prepare("UPDATE traiter SET animal_id = :animal , type_soin = :type_consultation , tarif_standard = :tarif , date_consult = :date_consult , raison_tarif_exceptionnel = :raison_tarif_exceptionnel WHERE consultation_id = :id");

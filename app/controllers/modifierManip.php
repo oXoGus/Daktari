@@ -12,14 +12,21 @@
     if (isset($_GET['code']) && !empty($_GET['code'])){
         
         // on récup les info de l'entreprise
-        $manipInfo = $cnx->prepare("SELECT code, tarif, duree FROM manipulation WHERE code = :code");
-        $manipInfo->execute(["code" => $_GET['code']]);
-        $manipInfo = $manipInfo->fetch(PDO::FETCH_OBJ);
+        $manipInfoQuery = $cnx->prepare("SELECT code, tarif, duree FROM manipulation WHERE code = :code");
+        $manipInfoQuery->execute(["code" => $_GET['code']]);
+        $manipInfo = $manipInfoQuery->fetch(PDO::FETCH_OBJ);
+        
+        // aucune manip correspondant
+        if ($manipInfoQuery->rowCount() == 0){
+            header("location: ".(isset($_SESSION['rechercheParam']) ? $_SESSION['rechercheParam'] : "rechercherManip.php"));   
+            exit;
+        }
+        // on affiche ensuite la page dynamique 
+        include($originDir."/app/views/modifierManip.php");
     } else {
         header('location: rechercherManip.php');
         exit;
     }
 
-    // on affiche ensuite la page dynamique 
-    include($originDir."/app/views/modifierManip.php");
+    
 ?>

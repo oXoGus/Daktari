@@ -2,6 +2,9 @@
 
     include($originDir."/config/middleware.php"); // page accessible uniquement aux utilisateur connecté
 
+    // on récupère le l'url pour pouvoir revenir a cette recherche avec ces param
+    $_SESSION['rechercheParam'] = $_SERVER['PHP_SELF'].(isset($_SERVER['QUERY_STRING']) ? "?".$_SERVER['QUERY_STRING'] : "").$_SERVER['QUERY_STRING']."#result";
+        
     $rechercherAnimal=array();
     $parametres = [];
     if (!empty($_GET["resp"])) {
@@ -15,6 +18,10 @@
     if (!empty($_GET["espece"])) {
         $rechercherAnimal["espece"]="a.espece=:espece";
         $parametres['espece']=$_GET['espece'];
+    }
+    if (!empty($_GET["castre"])) {
+        $rechercherAnimal["castre"]="a.castre=:castre";
+        $parametres['castre']= $_GET['castre'];
     }
     if (!empty($_GET["race"])) {
         $rechercherAnimal["race"]="a.race=:race";
@@ -43,9 +50,15 @@
         $sep="";
         foreach( $rechercherAnimal as $key => $value ) {
             $req .=$sep.$value."";
-            $sep="AND ";
+            $sep=" AND ";
         }
+        include($originDir."/app/models/GETResponsable.php");
+        $rowsMA=$resResp->fetchAll(PDO::FETCH_OBJ);
         
+        //On affiche tous les vaccins
+        include($originDir."/app/models/GETVaccins.php");
+        $rowsVaccins=$resVaccins->fetchAll(PDO::FETCH_OBJ);
+
         include($originDir."/app/models/rechercherAnimal.php");
 
         include($originDir."/app/views/rechercherAnimal.php");
