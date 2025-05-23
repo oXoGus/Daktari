@@ -77,7 +77,8 @@ a {
     justify-content: space-around;
     background-color: #FCECD4;
     margin-bottom: 20px;
-    height: 10%;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 
@@ -172,7 +173,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
 }
 
 .loginContainer {
@@ -298,6 +298,7 @@ form {
     flex-direction: column;
     align-items: center;
     z-index: 0;
+    margin-bottom: 0px;
 }
 
 form span {
@@ -307,7 +308,28 @@ form span {
     font-style: normal;
     font-size: var(--font-size);
     color: #0B2E49;
+    margin-top: 5px;
 }
+
+
+.spanContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spanContainer span {
+    width: 100%;
+    display: flex;
+}
+
+.spanContainer span input {
+    flex: 1;
+    margin-left: 5px;
+}
+
+
+
 
 
 .formTitle {
@@ -355,6 +377,7 @@ form span {
     bottom: -25px;
     background-color: #31656C;
     color: #FCECD4;
+    padding-bottom: 5px;
 }
 
 .newBtnLeft {
@@ -373,6 +396,7 @@ form span {
     font-style: normal;
     font-size: var(--font-size);
     text-align: left;
+    padding-bottom: 5px;
 }
 
 
@@ -560,6 +584,7 @@ input[type="submit"] {
     background-color: #FCECD4;
     margin-top: 20px;
     margin-bottom: 20px;
+    
 }
 
 

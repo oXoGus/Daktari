@@ -51,19 +51,21 @@
                     <h2 class="sectionTitle">Info générales</h2>
                     <div></div>
                 </div> 
-                <span>
-                    Code de 8 caractères max : <input type="text" maxlength="8" name="code" <?php if (isset($_GET['code'])) {echo "value=\"".$_GET['code']."\"";}?>>
-                </span>
-                <span>
-                    Tarif en centime : <input type="text" min="0" name="tarif" <?php if (isset($_GET['tarif'])) {echo "value=\"".$_GET['tarif']."\"";}?>>
-                </span>
-                <span>
-                    Durée de la manipulation en minutes :<input type="number" min="0" name="duree" <?php if (isset($_GET['duree'])) {echo "value=\"".$_GET['duree']."\"";}?>>
-                </span>
+                <div class="spanContainer">
+                    <span>
+                        Code de 8 caractères max : <input type="text" maxlength="8" name="code" <?php if (isset($_GET['code'])) {echo "value=\"".$_GET['code']."\"";}?>>
+                    </span>
+                    <span>
+                        Tarif en centime : <input type="text" min="0" name="tarif" <?php if (isset($_GET['tarif'])) {echo "value=\"".$_GET['tarif']."\"";}?>>
+                    </span>
+                    <span>
+                        Durée de la manipulation en minutes :<input type="number" min="0" name="duree" <?php if (isset($_GET['duree'])) {echo "value=\"".$_GET['duree']."\"";}?>>
+                    </span>
 
-                <div class="btnSubResetContainer">
-                    <input type="reset" value="reinitialiser">
-                    <input type="submit" value="rechercher">
+                    <div class="btnSubResetContainer">
+                        <input type="reset" value="reinitialiser">
+                        <input type="submit" value="rechercher">
+                    </div>
                 </div>
 
                 <div style="margin-bottom: 50px;"></div>

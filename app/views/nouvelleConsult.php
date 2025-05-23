@@ -63,6 +63,7 @@
                 unset($msg);
             }
         ?>
+        
         <div class="formContainer">
             <h1 class="formTitle">Ajouter une consultation</h1>
             <form method="GET" action="nouvelleConsult.php">

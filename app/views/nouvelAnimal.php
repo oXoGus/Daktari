@@ -47,11 +47,12 @@
                 <div></div>
                 <h2 class="sectionTitle">Responsable</h2>
                 <div></div>
-                <a class="newBtnRight" href="nouveauResponsable.php">Nouveau Responsable</a>
+                <a class="newBtnRight" href="nouveauParticulier.php">Nouveau particulier</a>
+                <a class="newBtnLeft" href="nouvelleEntreprise.php">Nouveau professionnel</a>
             </div>
             <span>
                 <select name="resp" required>
-                    <option value="">--Choisissez un Responsable--</option>
+                    <option value="">Choisissez un Responsable...</option>
                     <?php
                     include($originDir."/app/models/GETResponsable.php");
                     $rows=$resResp->fetchAll(PDO::FETCH_OBJ);
@@ -68,14 +69,17 @@
             <div>
             </div>
             </div>
-            <span>Nom : <input type="text" name="nom" required></span>
+            <div class="spanContainer">
+                    <span>Nom : <input type="text" name="nom" maxlength="50" required></span>
             <span>Espece :
-                <input type="text" name="espece" required>
+                <input type="text" name="espece" maxlength="50" required>
             </span>
             <span>
                 Race :
-                <input type="text" name="race" required>
+                <input type="text" name="race" maxlength="50" required>
             </span>
+            </div>
+            
             <span>
                 Genre : 
                 <input type="radio" value="F" name="genre" required>
@@ -83,23 +87,23 @@
                 <input type="radio" value="M" name="genre">
                 M
             </span>
-            <span> Taille : <input type="text" name="taille" required>
+            <span> Taille : <input type="number" min="0" name="taille">
             </span>
             <span>Castré : 
                 <input type="radio" value="t" name="castre" required>
                 Oui
-                <input type="radio" value="f" name="castre">
+                <input type="radio" value="f" name="castre" required>
                 Non
             </span>
             <span>
-                Poids : <input type="text" name="poids" required>
+                Poids : <input type="number" min="0" name="poids" required>
             </span>
             <div class="sectionTitleContainer">
                 <div></div>
                 <h2 class="sectionTitle">Vaccins</h2>
                 <div></div>
-                <a class="newBtnRight" href="nouveauTraitement.php">nouveau traitement</a>
-                <button type="submit"class="newBtnLeft">ajouter un traitement pour cette consultation </button>
+                <a class="newBtnRight" href="nouveauTraitement.php">nouveau vaccin</a>
+                <button type="submit"class="newBtnLeft">ajouter un vaccin pour cet animal </button>
             </div>
             <span>
                 <select name="vaccin" required>

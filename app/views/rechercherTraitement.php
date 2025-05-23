@@ -41,72 +41,92 @@
                 <a href="connexion.php">se déconnecter</a>
             </div>
             <div class="formContainer">
-                <h1 class="formContainerTitle">
+                <h1 class="formTitle">
                     Rechercher un traitement
                 </h1>
-                <form type="GET" action="rechercherTraitement.php">
+                <form method="GET" action="rechercherTraitement.php">
                     <div class="sectionTitleContainer">
                         <div></div>
                         <h2 class="sectionTitle">Infos Générales</h2>
                         <div></div>
                     </div>
-                    <span>
-                        Produit : <input type="text" name="produit">
-                    </span>
-                    <span>
-                        Dilution : <input type="text" name="dilution">
-                    </span>
-                    <span>
-                        Dose : <input type="text" name="dose">
-                    </span>
-                    <span>
-                        Durée de traitement : <input type="text" name="duree_traitement">
-                    </span>
-                    <span>
-                        Fréquence : <input type="text" name="frequence">
-                    </span>
-                    <span>
-                        Quand : <input type="text" name="quand">
-                    </span>
+                    <div class="spanContainer">
+                        <span>
+                            Produit : <input type="text" maxlength="50" name="produit">
+                        </span>
+                        <span>
+                            Dilution : <input type="number" autocomplete="off" min="0" step="any" name="dilution">
+                        </span>
+                        <span>
+                            Dose : <input type="number" autocomplete="off" min="0" step="any" name="dose">
+                        </span>
+                        <span>
+                            Durée de traitement : <input type="number" autocomplete="off" min="0" step="any" name="duree_traitement">
+                        </span>
+                        <span>
+                            Fréquence : <input type="number" min="0" autocomplete="off" step="any" name="frequence">
+                        </span>
+                        <span>
+                            Quand : <input type="text" maxlength="50" name="quand">
+                        </span>
+                    </div>
                     <div class="btnSubResetContainer">
                         <input type="reset" value="Réinitialiser">
                         <input type="submit" value="Sauvegarder">
                     </div>
+                    <div style="margin-bottom: 30px;"></div>
                 </form>
             </div>
-        </div>
-        <div class="mainContainer">
-            <div class="formContainer">
-                <div class="sectionTitleContainer">
-                    <div></div>
+
+            <div id="result" class="responseContainer">
+                <div class="tableContainer">
                     <?php
-                        echo "<h2 class='sectionTitle'>\n";
-                        $countRT = $resRT->rowCount();
-                        echo $countRT." traitements trouvés\n";
-                        echo "</h2>";
-                    ?>
-                    <div></div>
-                </div>
-                <table>
-                    <thead>
-                        <th scope="col">Produit</th>
-                        <th scope="col">Dilution</th>
-                        <th scope="col">Dose</th>
-                        <th scope="col">Durée</th>
-                        <th scope="col">Fréquence</th>
-                        <th scope="col">Quand</th>
-                        <th scope="col">Voir plus</th>
-                    </thead>
-                    <tbody>
-                    <?php
-                        $lignesRT=$resRT->fetchAll(PDO::FETCH_OBJ);
-                        foreach ($lignesRT as $ligneRT) {
-                            echo"<tr><th>".$ligneRT->produit ."</th><td>".$ligneRT->dilution ."</td><td>".$ligneRT->dose ."</td><td>".$ligneRT->duree_traitement ."</td><td>".$ligneRT->frequence ."</td><td>".$ligneRT->quand."</td><td><a href='modifierTraitement.php?id=".$ligneRT->id."'>Voir/Modifier</a></td></tr>";
+                        if ($resRT->rowCount() > 0){
+                            echo '
+                            <div class="sectionTitleContainer">
+                                    <div></div>    
+                                    <h2 class="sectionTitle">'.$resRT->rowCount().' traitements trouvés</h2>
+                                    <div></div>
+                                </div> 
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Produit</th>
+                                        <th scope="col">Dilution</th>
+                                        <th scope="col">Dose</th>
+                                        <th scope="col">Durée</th>
+                                        <th scope="col">Fréquence</th>
+                                        <th scope="col">Quand</th>
+                                        <th scope="col">Voir plus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>';
+                                $lignesRT=$resRT->fetchAll(PDO::FETCH_OBJ);
+                                foreach ($lignesRT as $ligneRT) {
+                                    echo"<tr><td>".$ligneRT->produit ."</td><td>".$ligneRT->dilution ."</td><td>".$ligneRT->dose ."</td><td>".$ligneRT->duree_traitement ."</td><td>".$ligneRT->frequence ."</td><td>".$ligneRT->quand."</td><td><a href='modifierTraitement.php?id=".$ligneRT->id."'>Voir/Modifier</a></td></tr>";
+                                }
+                                echo '</tbody>
+                            </table>
+                        
+                            ';
+                        } else {
+                            echo '
+                                <div class="sectionTitleContainer">
+                                    <div></div>    
+                                    <h2 class="sectionTitle">aucun animal trouvée</h2>
+                                    <div></div>
+                                </div> 
+                                <div class="noResponseContainer">
+                                    <p>Réessayer</p>
+                                    <p>ou</p>
+                                    <a href="nouvelAnimal.php">ajouter un animal</a>
+                                </div>
+                            ';
                         }
-                        ?>
-                    </tbody>
-                </table>
+                    ?>
+                </div>
             </div>
+
         </div>
     </body>
 </html>

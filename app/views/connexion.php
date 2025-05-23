@@ -10,10 +10,7 @@
     <title>Daktari</title>
 </head>
 <body>
-
-    
-
-    <div class="mainContainer">
+    <div class="mainContainer" style="height: 100vh;">
         <div class="loginContainer">
             <h1>(Re)Bonjour !</h1>
             <form action="connexion.php" method="get">

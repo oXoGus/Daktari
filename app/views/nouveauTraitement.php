@@ -8,7 +8,7 @@
     </head>
     <body>
     <div class="mainContainer">
-        <div class="navBar" style="height:70px; margin-top: 10px">
+        <div class="navBar" style="margin-top: 10px">
             <a href="nouvelleConsult.php">nouvelle consultation</a>
             <a href="nouvelAnimal.php">nouvel animal</a>
             <a href="rechercherConsult.php">rechercher une consultation</a>
@@ -38,28 +38,51 @@
             </div>
             <a href="connexion.php">se déconnecter</a>
         </div>
+
+        <?php 
+            if (isset($err)){
+                echo "<div id=\"errContainer\" class=\"errContainer\">";
+                    echo "<div>";
+                        echo "<h1>erreur :</h1>";
+                        echo "<p>$err</p>";
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($err);
+            } if (isset($msg)){
+                echo "<div id=\"errContainer\" class=\"msgContainer\">";
+                    echo "<div>";
+                        echo "<p>$msg</p>";                        
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($msg);
+            }
+        ?>
         <div class="formContainer">
-        <h1 class="formTitle">Ajouter un traitement</h1>
-        <div class="sectionTitleContainer">
-        <div></div>
-        <h2 class="sectionTitle">Infos générales</h2>
-        <div></div>
-        </div>
-        <form type="get" action="nouveauTraitement.php">
-        <div class="info">
-            <span>Produit : <input type="text" name="produit" required></span><br>
-            <span>Dilution : <input type="text" name="dilution" required></span><br>
-            <span>Dose : <input type="text" name="dose" required></span><br>
-            <span>Durée du traitement : <input type="text" name="duree_traitement" required></span><br>
-            <span>Fréquence : <input type="text" name="frequence" required></span><br>
-            <span>Quand : <input type="text" name="quand" required></span><br>
-            <div class="btnSubResetContainer">
-                <input type="reset" value="Réinitialiser">
-                <input type="submit" value="Sauvegarder" id="save"></div>
-            </div>
-            <div style="margin-bottom: 100px"></div>
+            <h1 class="formTitle">Ajouter un traitement</h1>
+            <form method="get" action="nouveauTraitement.php">
+                <div class="sectionTitleContainer">
+                    <div></div>
+                    <h2 class="sectionTitle">Infos générales</h2>
+                    <div></div>
+                </div>
+                <div class="spanContainer">
+                    <span>Produit : <input type="text" maxlength="50" name="produit" required></span>
+                    <span>Dilution : <input type="number" min="0" name="dilution" required></span>
+                    <span>Dose : <input type="number" min="0" name="dose" required></span>
+                    <span>Durée du traitement (en jours) : <input type="number" min="1" name="duree_traitement" required></span>
+                    <span>Fréquence (par jours) : <input type="number" min="0"  name="frequence" required></span>
+                    <span>Quand : <input type="text" name="quand" maxlength="50" required></span>  
+                </div>
+                <div class="btnSubResetContainer">
+                    <input type="reset" value="Réinitialiser">
+                    <input type="submit" value="Sauvegarder">
+                </div>
+                <div style="margin-bottom: 40px"></div>
             </form>
         </div>
-        </div>
+    </div>
+    <script src="script/fermerErr.js"></script>
     </body>
 </html>

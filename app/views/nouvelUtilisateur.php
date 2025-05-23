@@ -5,9 +5,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style/style.css">
     </head>
-    <>
     <div class="mainContainer">
-        <div class="navBar" style="height:70px; margin-top: 10px">
+        <div class="navBar" style="margin-top: 10px">
             <a href="nouvelleConsult.php">nouvelle consultation</a>
             <a href="nouvelAnimal.php">nouvel animal</a>
             <a href="rechercherConsult.php">rechercher une consultation</a>
@@ -46,13 +45,15 @@
         </div>
         <form type="get" action="nouvelUtilisateur.php">
             <div class="user">
-                <span>Nom d'utilisateur : <input type="text" name="username" required></span><br>
-                <span>Mot de passe : <input type="text" name="mdp" required></span>
+                <div class="spanContainer">
+                    <span>Nom d'utilisateur : <input type="text" name="username" required></span><br>
+                    <span>Mot de passe : <input type="text" name="mdp" required></span>
+                </div>
                 <div class="btnSubResetContainer">
                     <input type="reset" value="Réinitialiser">
                     <input type="submit" value="Sauvegarder" id="save">
                 </div>
-                <div style="margin-bottom: 100px"></div> 
+                <div style="margin-bottom: 50px"></div> 
             </div>
         </form>
     </div>
