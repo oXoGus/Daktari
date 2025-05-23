@@ -38,7 +38,7 @@ $augm ="select * from tarif_augment";
   try{
     $reqA -> execute();
   } catch(Exception $e){
-    echo "".$e -> getMessage()."";
+    echo "Une erreur est survenue, la fonctionnalitée demandée est indisponible pour le moment.";
   }
 
 ?>

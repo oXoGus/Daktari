@@ -37,7 +37,7 @@
         //on renvoit le resultat obtenu au controleur
     } catch (PDOException $e){
         $cnx->rollBack();
-        $err = "Une erreur est survenue".$e;
+        $err = "Vérifiez que les champs sont remplis et ne contiennent pas le caractère ' ";
     }
     
 ?>

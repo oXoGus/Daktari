@@ -4,6 +4,6 @@
         $resUT = $cnx ->query("UPDATE traitement SET ".$reqUT." WHERE id=".$_GET['id']);
         $msg = "le traitement à bien été modifié";
     } catch (PDOException $e){
-        $err = $e->getMessage();
+        echo "Vérifiez que les champs sont remplis et ne contiennent pas le caractère ' ";
     }
 ?>

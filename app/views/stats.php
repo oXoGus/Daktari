@@ -44,7 +44,8 @@
                 <h1 class="formTitle">
                     Statistiques
                 </h1>
-                    <div class="tableContainer">                        <div class="sectionTitleContainer">
+                    <div class="tableContainer">                        
+                        <div class="sectionTitleContainer">
                             <div></div>
                             <h2 class="sectionTitle">Meilleurs clients</h2>
                             <div></div>
