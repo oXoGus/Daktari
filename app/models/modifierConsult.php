@@ -36,7 +36,7 @@
     } catch (PDOException $e) {
 
         $cnx->rollBack();
-        $err = $e;
+        echo "Vérifiez que les champs sont remplis et ne contiennent pas de caractères spéciaux. Veuillez réessayer ";
     }
 
 ?>

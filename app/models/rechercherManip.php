@@ -30,6 +30,7 @@
             $res = $manipTrouve->execute($params);            
         }
     } catch (PDOException $e){
+        echo "Vérifiez que les champs sont remplis et ne contiennent pas de caractères spéciaux. Veuillez réessayer ";
         $err = $e->getMessage();    
     }
 ?>

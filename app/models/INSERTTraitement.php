@@ -4,6 +4,6 @@
         $addT = $cnx -> exec($inputTraitement);
         $msg = "le traitement a bien été ajouté";
     } catch (PDOException $e) {
-        $err = $e->getMessage();
+        echo "Vérifiez que les champs sont remplis et ne contiennent pas de caractères spéciaux. Veuillez réessayer ";
     }
 ?>

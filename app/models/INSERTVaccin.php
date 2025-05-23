@@ -4,6 +4,6 @@
         $inputVacc = $cnx ->query($inputVaccin);
         $msg = "le vaccin a bien été ajouté ";
     } catch (PDOException $e) {
-        $err = $e->getMessage();
+        echo "Vérifiez que les champs sont remplis et ne contiennent pas de caractères spéciaux. Veuillez réessayer ";
     } 
 ?>

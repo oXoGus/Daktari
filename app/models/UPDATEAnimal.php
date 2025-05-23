@@ -4,8 +4,9 @@
         $resUA = $cnx ->prepare("UPDATE animaux SET ".$reqUA." WHERE id=".$_GET['id']);
         $resUA -> execute($parametresA);
         $msg = "l'animal a bien été modifier";
+        
     } catch (PDOException $e) {
-        $err = $e->getMessage();
+        echo "Vérifiez que les champs sont remplis et ne contiennent pas le caractère ' ";
     }
    
 ?>
