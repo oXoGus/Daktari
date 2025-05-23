@@ -2,7 +2,14 @@
 //Les trois vues des requêtes
 //Vue numéro 1 : Les meilleurs clients 
 //On prend la somme des dépenses de chaque client et on affiche dans le sens décroissant
-$bestClient ="select r.nom, sum(tarif_standard + ma.tarif) as total from animaux a join responsable r on a.id_responsable=r.id join traiter t on a.id=t.animal_id join manip_consult m on t.consultation_id=m.consultation_id join manipulation ma on ma.code=m.code GROUP BY r.id ORDER BY total DESC";
+$bestClient ="SELECT responsable.nom,SUM(COALESCE(manipulation.tarif, 0)/100) + SUM(traiter.tarif_standard) as total
+FROM responsable JOIN animaux ON responsable.id = animaux.id
+JOIN traiter ON animaux.id = traiter.animal_id
+JOIN consultation ON traiter.consultation_id = consultation.id
+left JOIN manip_consult ON consultation.id = manip_consult.consultation_id
+left JOIN manipulation ON manip_consult.code = manipulation.code
+GROUP BY responsable.id
+ORDER BY SUM(COALESCE(manipulation.tarif, 0)/100) + SUM(traiter.tarif_standard) DESC;";
 
 $reqB = $cnx -> prepare($bestClient);
 $reqB -> execute();
