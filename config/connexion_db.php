@@ -10,7 +10,8 @@
         $cnx = new PDO("pgsql:host=$host;dbname=$db;", $user, $pass);
     }
     catch(PDOException $e){
-        echo "Erreur : La connexion a échouée : ".$e;
-        echo phpinfo();
+        $err = "La connexion à la base de données a échouée. Si vous êtes sur le réseau éduroam changer de réseau et reéssayer";
+        include($originDir."/app/views/err.php");
+        exit; 
     }
     ?>

@@ -73,22 +73,22 @@
                     <div></div>
                 </div> 
                 <span>
-                    Nom : <input type="text" name="nom" >
+                    Nom : <input type="text" name="nom" maxlength="50">
                 </span>
                 <span>
-                    Prénom : <input type="text" name="prenom" >
+                    Prénom : <input type="text" name="prenom" maxlength="50" >
                 </span>
                 <span>
                     Date de naissance : <input type="date" name="date_de_naissance" >
                 </span>
                 <span>
-                    Adresse : <input type="text" name="adresse" >
+                    Adresse : <input type="text" name="adresse" maxlength="50" >
                 </span>
                 <span>
-                    Téléphone : <input type="text" name="telephone" >
+                    Téléphone : <input type="text" name="telephone" maxlength="15" >
                 </span>
                 <span>
-                    Mail : <input type="text" name="mail" >
+                    Mail : <input type="text" name="mail" maxlength="50" >
                 </span>
 
                 <div class="btnSubResetContainer">

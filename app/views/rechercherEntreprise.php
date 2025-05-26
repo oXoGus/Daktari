@@ -13,7 +13,7 @@
 <body>
     <div class="mainContainer">
         <div class="navBar" style="margin-top: 10px">
-            <a href="nouvelleentreprise.php">nouvelle entrepriseation</a>
+            <a href="nouvelleConsultation.php">nouvelle entrepriseation</a>
             <a href="nouvelAnimal.php">nouvel animal</a>
             <a href="rechercherentreprise.php">rechercher une Consultation</a>
             <div class="menuDeroulantContainer">
@@ -107,7 +107,7 @@
                         echo '
                         <div class="sectionTitleContainer">
                                 <div></div>    
-                                <h2 class="sectionTitle">'.count($entrepriseTrouveLst).' entrepriseations trouvées</h2>
+                                <h2 class="sectionTitle">'.count($entrepriseTrouveLst).' entreprises trouvées</h2>
                                 <div></div>
                             </div> 
                         <table>

@@ -36,6 +36,28 @@
             </div>
             <a href="connexion.php">se déconnecter</a>
         </div>
+
+        <?php 
+            if (isset($err)){
+                echo "<div id=\"errContainer\" class=\"errContainer\">";
+                    echo "<div>";
+                        echo "<h1>erreur :</h1>";
+                        echo "<p>$err</p>";
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($err);
+            } if (isset($msg)){
+                echo "<div id=\"errContainer\" class=\"msgContainer\">";
+                    echo "<div>";
+                        echo "<p>$msg</p>";                        
+                        echo '<button type="button" onClick="fermerErr()"></button>';
+                    echo "</div>";
+                echo "</div>";
+                unset($msg);
+            }
+        ?>
+
         <div class="formContainer">
             <h1 class="formTitle">Nouvel Utilisateur</h1>
             <div class="sectionTitleContainer">
@@ -46,8 +68,8 @@
         <form type="get" action="nouvelUtilisateur.php">
             <div class="user">
                 <div class="spanContainer">
-                    <span>Nom d'utilisateur : <input type="text" name="username" required></span><br>
-                    <span>Mot de passe : <input type="text" name="mdp" required></span>
+                    <span>Nom d'utilisateur : <input type="text" name="username" maxlength="50" required></span><br>
+                    <span>Mot de passe : <input type="text" name="mdp" maxlength="50" required></span>
                 </div>
                 <div class="btnSubResetContainer">
                     <input type="reset" value="Réinitialiser">
@@ -58,5 +80,6 @@
         </form>
     </div>
     </div>
+    <script src="script/fermerErr.js"></script>
     </body>
 </html>

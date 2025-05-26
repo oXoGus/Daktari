@@ -73,16 +73,16 @@
                 </div> 
                 <div class="spanContainer">
                     <span>
-                        Nom : <input type="text" name="nom" required>
+                        Nom : <input type="text" name="nom" maxlength="50" required>
                     </span>
                     <span>
-                        Adresse : <input type="text" name="adresse" required>
+                        Adresse : <input type="text" name="adresse" maxlength="50" required>
                     </span>
                     <span>
-                        Téléphone : <input type="text" name="telephone" required>
+                        Téléphone : <input type="text" name="telephone" maxlength="15" required>
                     </span>
                     <span>
-                        Mail : <input type="text" name="mail" required>
+                        Mail : <input type="text" name="mail" maxlength="50" required>
                     </span>
                 </div>
                 
@@ -93,10 +93,10 @@
                 </div>
                 
                 <span>
-                    Adresse site web : <input type="text" name="adresse_site_web" required>
+                    Adresse site web : <input type="text" maxlength="50" name="adresse_site_web" required>
                 </span>
                 <span>
-                    IBAN : <input type="text" name="IBAN" required>
+                    IBAN : <input type="text" name="IBAN" maxlength="27" required>
                 </span>
                 <span>
                     Type d'entreprise :
