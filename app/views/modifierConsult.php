@@ -91,7 +91,7 @@
                 </span>
                 <div class="sectionTitleContainer">
                     <div></div>    
-                    <h2 class="sectionTitle">Desciptif</h2>
+                    <h2 class="sectionTitle">Descriptif</h2>
                     <div></div>
                 </div>
                 <span>
